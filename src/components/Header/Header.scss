@@ -1,0 +1,74 @@
+.Header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 24px;
+  z-index: 2;
+
+  &.Header_secondary {
+    position: initial;
+    background-color: #333333;
+  }
+
+  &-Hamburger {
+    width: 30px;
+    height: auto;
+
+    @media (min-width: 1024px) {
+      display: none;
+    }
+
+    path {
+      fill: #ffffff;
+    }
+  }
+
+  &-Inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (min-width: 1024px) {
+      width: 960px;
+      margin: 0 auto;
+      padding: 32px 0;
+    }
+
+    @media (min-width: 1300px) {
+      width: 1260px;
+    }
+  }
+
+  &-Nav {
+    display: none;
+
+    @media (min-width: 1024px) {
+      display: block;
+    }
+  }
+
+  &-Logo {
+    width: 140px;
+  }
+
+  &-NavLink {
+    color: #ffffff;
+    letter-spacing: 1px;
+    margin-right: 48px;
+    transition: text-shadow 0.3s ease-out;
+  }
+
+  &-NavLink:hover {
+    text-shadow: 0.7px 0 0 var(--color-secondary);
+  }
+
+  &-Nav-Button {
+    margin-right: 24px;
+    display: inline-block;
+  }
+
+  &-Nav-Button:last-child {
+    margin-right: 0;
+  }
+}
