@@ -1,5 +1,6 @@
 @import-normalize;
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500&family=PT+Serif:wght@700&display=swap");
+@import "/src/theme.scss";
 
 * {
   box-sizing: border-box;
@@ -8,7 +9,7 @@
 }
 
 body {
-  font-family: "Manrope", sans-serif;
+  font-family: $fontPrimary;
 }
 
 a {
@@ -18,5 +19,5 @@ a {
 h1,
 h2 {
   margin: 0;
-  font-family: "PT Serif", serif;
+  font-family: $fontSecondary;
 }

@@ -1,31 +1,24 @@
 import React from "react";
 import Header from "../../components/Header/Header";
-import Landing from "../../components/Landing/Landing";
 import Main from "../../components/Main/Main";
 import Section from "../../components/Section/Section";
+import Grid from "../../components/Grid/Grid";
+import CourseCard from "../../components/CourseCard/CourseCard";
 import LectureImg1 from "../../assets/images/lecture-1.jpg";
 import LectureImg2 from "../../assets/images/lecture-2.jpg";
 import LectureImg3 from "../../assets/images/lecture-3.jpg";
 import LectureImg4 from "../../assets/images/lecture-4.jpg";
-import CourseCard from "../../components/CourseCard/CourseCard";
-import Grid from "../../components/Grid/Grid";
-import Testimonial from "../../components/Testimonial/Testimonial";
+import LectureImg5 from "../../assets/images/lecture-5.jpg";
+import LectureImg6 from "../../assets/images/lecture-6.jpg";
+import LectureImg7 from "../../assets/images/lecture-7.jpg";
+import LectureImg8 from "../../assets/images/lecture-8.jpg";
 
-const Home = () => {
+const Courses = () => {
   return (
     <>
       <Header />
       <Main>
-        <section>
-          <Landing />
-        </section>
-        <Section
-          Tag={"h2"}
-          title={"Open new possibilites"}
-          actionText={"Learn something new"}
-          buttonText={"More Courses"}
-          isHeadingVisible={true}
-        >
+        <Section Tag={"h1"} title={"All lectures"} isHeadingVisible={true}>
           <Grid>
             <CourseCard
               imgSrc={LectureImg1}
@@ -51,14 +44,35 @@ const Home = () => {
               title={"4. Advanced CSS"}
               subtitle={"120+ Minutes"}
             />
+            <CourseCard
+              imgSrc={LectureImg5}
+              imgAlt={"JavaScript Basics"}
+              title={"5. JavaScript Basics"}
+              subtitle={"60 Minutes"}
+            />
+            <CourseCard
+              imgSrc={LectureImg6}
+              imgAlt={"Advanced JavaScript"}
+              title={"6. Advanced JavaScript"}
+              subtitle={"120+ Minutes"}
+            />
+            <CourseCard
+              imgSrc={LectureImg7}
+              imgAlt={"Intro to React"}
+              title={"7. Intro to React"}
+              subtitle={"120+ Minutes"}
+            />
+            <CourseCard
+              imgSrc={LectureImg8}
+              imgAlt={"React events & Conditionals"}
+              title={"8. React events & Conditionals"}
+              subtitle={"120+ Minutes"}
+            />
           </Grid>
-        </Section>
-        <Section modifiers={["testimonials"]} isHeadingVisible={false}>
-          <Testimonial />
         </Section>
       </Main>
     </>
   );
 };
 
-export default Home;
+export default Courses;

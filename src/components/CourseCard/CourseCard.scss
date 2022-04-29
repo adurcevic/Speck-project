@@ -1,3 +1,5 @@
+@import "/src/theme.scss";
+
 .Course {
   &:hover {
     .Course-Figure {
@@ -9,7 +11,7 @@
     }
 
     .Course-Title {
-      color: #bf3939;
+      color: $colorPrimary;
     }
   }
 
@@ -25,7 +27,7 @@
       height: 275px;
     }
 
-    @media (min-width: 481px) {
+    @media (min-width: 481pxl) {
       height: 200px;
     }
 
@@ -52,7 +54,7 @@
   &-Title {
     font-size: 20px;
     font-weight: 500;
-    color: #333333;
+    color: $colorTextPrimary;
     text-align: center;
     margin-bottom: 8px;
     transition: color 0.3s ease-out;
@@ -61,7 +63,7 @@
   &-Subtitle {
     font-size: 16px;
     font-weight: 300;
-    color: #696969;
+    color: $colorTextSecondary;
     text-align: center;
   }
 }

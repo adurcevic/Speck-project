@@ -6,6 +6,7 @@ const Section = ({
   modifiers,
   actionText,
   title,
+  Tag,
   buttonText,
   isHeadingVisible = true,
   children,
@@ -28,7 +29,7 @@ const Section = ({
         {actionText && <span className="Section-ActionText">{actionText}</span>}
         {isHeadingVisible && (
           <div className="Section-Heading">
-            {title && <h2 className="Section-Title">{title}</h2>}
+            {title && <Tag className="Section-Title">{title}</Tag>}
             {buttonText && (
               <Button modifiers={["heading", "outline"]}>{buttonText}</Button>
             )}

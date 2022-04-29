@@ -1,28 +1,30 @@
+@import "/src/theme.scss";
+
 .Section {
   padding: 60px 24px;
 
-  @media (min-width: 1024px) {
+  @media (#{$destkop}) {
     padding: 120px 0;
   }
 
   &_testimonials {
-    background-color: #f6fafb;
+    background-color: $colorBgSecondary;
   }
 
   &-Inner {
-    @media (min-width: 1024px) {
+    @media (#{$destkop}) {
       width: 960px;
       margin: 0 auto;
     }
 
-    @media (min-width: 1300px) {
+    @media (#{$destkopLarge}) {
       width: 1260px;
     }
   }
 
   &-ActionText {
     display: block;
-    color: #bf3939;
+    color: $colorPrimary;
     font-weight: 500;
     margin-bottom: 24px;
   }
@@ -30,7 +32,7 @@
   &-Heading {
     margin-bottom: 64px;
 
-    @media (min-width: 768px) {
+    @media (#{$tablet}) {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -38,17 +40,17 @@
   }
 
   &-Title {
-    color: #333333;
+    color: $colorTextPrimary;
     font-size: 26px;
     font-weight: 500;
     margin-bottom: 32px;
 
-    @media (min-width: 768px) {
+    @media (#{$tablet}) {
       font-size: 32px;
       margin-bottom: 0;
     }
 
-    @media (min-width: 1024px) {
+    @media (#{$destkop}) {
       font-size: 36px;
     }
   }

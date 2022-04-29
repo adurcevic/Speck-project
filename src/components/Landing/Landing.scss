@@ -1,3 +1,5 @@
+@import "/src/theme.scss";
+
 .Landing {
   position: relative;
   height: 100vh;
@@ -48,18 +50,47 @@
     z-index: 1;
   }
 
+  // &-Inner {
+  //   margin: 0 auto;
+
+  //   @media (#{$tabletSmall}) {
+  //     width: 450px;
+  //   }
+
+  //   @media (#{$tablet}) {
+  //     width: 550px;
+  //   }
+
+  //   @media (#{$destkop}) {
+  //     width: 960px;
+  //   }
+
+  //   @media (#{$destkopLarge}) {
+  //     width: 1280px;
+  //   }
+  // }
+
   &-Title {
     font-size: 56px;
     width: 550px;
-    color: #ffffff;
+    color: $colorSecondary;
     margin-bottom: 24px;
+
+    // @media (min-width: 481px) {
+    //   width: 450px;
+    //   font-size: 56px;
+    // }
   }
 
   &-Subtitle {
     font-size: 16px;
     line-height: 180%;
-    color: #ffffff;
+    color: $colorSecondary;
     width: 440px;
     margin-bottom: 48px;
+
+    // @media (#{$tabletSmall}) {
+    //   font-size: 16px;
+    // }
   }
 }

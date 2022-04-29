@@ -1,4 +1,5 @@
 import "./Button.scss";
+import "../../theme.scss";
 
 const Button = ({ modifiers, children }) => {
   const modifierClasses = {
