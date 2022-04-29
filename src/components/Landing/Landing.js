@@ -19,7 +19,9 @@ const Landing = () => {
             Make a turnaround in your career or upgrade your current skill set
             with knowledge-based lessons from IT practice
           </p>
-          <Button modifiers={["landing"]}>Explore Courses</Button>
+          <Button path="/courses" modifiers={["landing"]}>
+            Explore Courses
+          </Button>
         </div>
       </div>
     </div>

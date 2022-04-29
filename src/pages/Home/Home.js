@@ -25,6 +25,7 @@ const Home = () => {
           actionText={"Learn something new"}
           buttonText={"More Courses"}
           isHeadingVisible={true}
+          path={"/courses"}
         >
           <Grid>
             <CourseCard

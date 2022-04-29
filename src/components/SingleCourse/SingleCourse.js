@@ -1,16 +1,11 @@
 import React from "react";
 import "./SingleCourse.scss";
-import LectureImg1 from "../../assets/images/lecture-1.jpg";
 
-const SingleCourse = () => {
+const SingleCourse = ({ imgSrc, imgAlt }) => {
   return (
     <div className="SingleCourse">
       <figure className="SingleCourse-Figure">
-        <img
-          className="SingleCourse-Image"
-          src={LectureImg1}
-          alt="lecture-1.jpg"
-        />
+        <img className="SingleCourse-Image" src={imgSrc} alt={imgAlt} />
       </figure>
       <p className="SingleCourse-Text">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec

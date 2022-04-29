@@ -1,14 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Header.scss";
 import LogoImg from "../../assets/images/logo.svg";
 import Button from "../Button/Button";
+
 const Header = () => {
   return (
     <header className="Header">
       <div className="Header-Inner">
-        <a href="/" className="Header-LogoLink">
+        <Link to="/" className="Header-LogoLink">
           <img className="Header-Logo" alt="Academy logo" src={LogoImg} />
-        </a>
+        </Link>
         <svg
           className="Header-Hamburger"
           width="448"
@@ -23,9 +25,9 @@ const Header = () => {
           />
         </svg>
         <nav className="Header-Nav">
-          <a className="Header-NavLink" href="courses.html">
+          <Link className="Header-NavLink" to="/courses">
             Courses
-          </a>
+          </Link>
           <div className="Header-Nav-Button">
             <Button modifiers={["nav"]}>Sign In</Button>
           </div>
