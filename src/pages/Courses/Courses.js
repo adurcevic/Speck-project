@@ -16,7 +16,7 @@ import LectureImg8 from "../../assets/images/lecture-8.jpg";
 const Courses = () => {
   return (
     <>
-      <Header />
+      <Header modifiers={["secondary"]} />
       <Main>
         <Section Tag={"h1"} title={"All lectures"} isHeadingVisible={true}>
           <Grid>

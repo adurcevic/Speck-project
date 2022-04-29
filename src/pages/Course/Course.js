@@ -8,7 +8,7 @@ import LectureImg1 from "../../assets/images/lecture-1.jpg";
 const Course = () => {
   return (
     <>
-      <Header />
+      <Header modifiers={["secondary"]} />
       <Main>
         <Section
           Tag={"h1"}
