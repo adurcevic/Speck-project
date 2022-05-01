@@ -59,9 +59,33 @@
     letter-spacing: 1px;
     margin-right: 48px;
     transition: text-shadow 0.3s ease-out;
+    position: relative;
 
     &:hover {
       text-shadow: 0.7px 0 0 $colorSecondary;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      height: 2px;
+      width: 100%;
+      background: $colorSecondary;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s, opacity 0.3s linear;
+    }
+
+    &:hover::after {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    &_active::after {
+      visibility: visible;
+      opacity: 1;
     }
   }
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import "./Header.scss";
 import LogoImg from "../../assets/images/logo.svg";
 import Button from "../Button/Button";
@@ -37,9 +37,16 @@ const Header = ({ modifiers }) => {
           />
         </svg>
         <nav className="Header-Nav">
-          <Link className="Header-NavLink" to="/courses">
+          <NavLink
+            className={(navData) =>
+              navData.isActive
+                ? "Header-NavLink" + " " + "Header-NavLink_active"
+                : "Header-NavLink"
+            }
+            to="/courses"
+          >
             Courses
-          </Link>
+          </NavLink>
           <div className="Header-Nav-Button">
             <Button modifiers={["nav"]}>Sign In</Button>
           </div>
