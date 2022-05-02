@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { NavLink, Link } from "react-router-dom";
 import { colors, breakpoints } from "../../lib/style/theme";
+import {ReactComponent as HamburgerIcon} from "../../assets/images/icon-hamburger.svg";
 
 export const Header = styled.header`
 position: absolute;
@@ -33,6 +34,19 @@ export const HeaderInner = styled.div`
 
     @media (${breakpoints.destkopLarge}) {
       width: 1260px;
+    }
+`;
+
+export const Hamburger = styled(HamburgerIcon)`
+ width: 30px;
+    height: auto;
+
+    @media (${breakpoints.destkop}) {
+      display: none;
+    }
+
+    path {
+      fill: ${colors.bgPrimary};
     }
 `;
 
