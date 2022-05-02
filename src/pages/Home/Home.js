@@ -8,8 +8,8 @@ import LectureImg2 from "../../assets/images/lecture-2.jpg";
 import LectureImg3 from "../../assets/images/lecture-3.jpg";
 import LectureImg4 from "../../assets/images/lecture-4.jpg";
 import CourseCard from "../../components/CourseCard/CourseCard";
-import Grid from "../../components/Grid/Grid";
 import Testimonial from "../../components/Testimonial/Testimonial";
+import { Grid } from "../../lib/style/generalStyles";
 
 const Home = () => {
   return (
