@@ -3,11 +3,10 @@ import { useEffect, useState } from "react";
 import coursesMock from "../../lib/mock/courses";
 import Header from "../../components/Header/Header";
 import Landing from "../../components/Landing/Landing";
-import Main from "../../components/Main/Main";
 import Section from "../../components/Section/Section";
 import CourseCard from "../../components/CourseCard/CourseCard";
 import Testimonial from "../../components/Testimonial/Testimonial";
-import { Grid } from "../../lib/style/generalStyles";
+import { Grid, Main } from "../../lib/style/generalStyles";
 
 const Home = () => {
   const [courses, setCourses] = useState(null);

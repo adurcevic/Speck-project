@@ -1,6 +1,5 @@
 import React from "react";
 import Header from "../../components/Header/Header";
-import Main from "../../components/Main/Main";
 import Section from "../../components/Section/Section";
 import CourseCard from "../../components/CourseCard/CourseCard";
 import LectureImg1 from "../../assets/images/lecture-1.jpg";
@@ -11,7 +10,7 @@ import LectureImg5 from "../../assets/images/lecture-5.jpg";
 import LectureImg6 from "../../assets/images/lecture-6.jpg";
 import LectureImg7 from "../../assets/images/lecture-7.jpg";
 import LectureImg8 from "../../assets/images/lecture-8.jpg";
-import { Grid } from "../../lib/style/generalStyles";
+import { Grid, Main } from "../../lib/style/generalStyles";
 
 const Courses = () => {
   return (
