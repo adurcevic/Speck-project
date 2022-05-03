@@ -1,17 +1,23 @@
 import React from "react";
+import { useEffect, useState } from "react";
+import coursesMock from "../../lib/mock/courses";
 import Header from "../../components/Header/Header";
 import Landing from "../../components/Landing/Landing";
 import Main from "../../components/Main/Main";
 import Section from "../../components/Section/Section";
-import LectureImg1 from "../../assets/images/lecture-1.jpg";
-import LectureImg2 from "../../assets/images/lecture-2.jpg";
-import LectureImg3 from "../../assets/images/lecture-3.jpg";
-import LectureImg4 from "../../assets/images/lecture-4.jpg";
 import CourseCard from "../../components/CourseCard/CourseCard";
 import Testimonial from "../../components/Testimonial/Testimonial";
 import { Grid } from "../../lib/style/generalStyles";
 
 const Home = () => {
+  const [courses, setCourses] = useState(null);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setCourses(coursesMock);
+    }, 1000);
+  }, []);
+
   return (
     <>
       <Header />
@@ -27,7 +33,24 @@ const Home = () => {
           isHeadingVisible={true}
           path={"/courses"}
         >
-          <Grid>
+          {courses && (
+            <Grid>
+              {courses.map(
+                (course, index) =>
+                  index <= 3 && (
+                    <CourseCard
+                      key={course.id}
+                      courseId={course.id}
+                      imgSrc={course.imgSrc}
+                      imgAlt={course.imgAlt}
+                      title={course.title}
+                      subtitle={course.subtitle}
+                    />
+                  )
+              )}
+            </Grid>
+          )}
+          {/* <Grid>
             <CourseCard
               imgSrc={LectureImg1}
               imgAlt={"Introduction"}
@@ -52,7 +75,7 @@ const Home = () => {
               title={"4. Advanced CSS"}
               subtitle={"120+ Minutes"}
             />
-          </Grid>
+          </Grid> */}
         </Section>
         <Section modifiers={["testimonials"]} isHeadingVisible={false}>
           <Testimonial />

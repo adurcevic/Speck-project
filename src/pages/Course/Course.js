@@ -1,26 +1,47 @@
 import React from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import Main from "../../components/Main/Main";
 import Section from "../../components/Section/Section";
 import SingleCourse from "../../components/SingleCourse/SingleCourse";
-import LectureImg1 from "../../assets/images/lecture-1.jpg";
+import coursesMock from "../../lib/mock/courses";
 
 const Course = () => {
+  const { id } = useParams();
+  const [courses, setCourses] = useState(null);
+  const [course, setCourse] = useState(null);
+
+  useEffect(() => {
+    setCourses(coursesMock);
+  }, []);
+
+  useEffect(() => {
+    courses &&
+      setCourse(...courses.filter((course) => course.id === parseInt(id)));
+  }, [courses, id]);
+
   return (
     <>
-      <Header modifiers={["secondary"]} />
-      <Main>
-        <Section
-          Tag={"h1"}
-          title={"1. Introduction"}
-          actionText={"120+ Minutes"}
-          buttonText={"Back"}
-          isHeadingVisible={true}
-          path={-1}
-        >
-          <SingleCourse imgSrc={LectureImg1} imgAlt={"lecture image"} />
-        </Section>
-      </Main>
+      <Header isSecondary={true} />
+      {course && (
+        <Main>
+          <Section
+            Tag={"h1"}
+            title={course.title}
+            actionText={course.subtitle}
+            buttonText={"Back"}
+            isHeadingVisible={true}
+            path={-1}
+          >
+            <SingleCourse
+              imgSrc={course.imgSrc}
+              imgAlt={course.imgAlt}
+              text={course.text}
+            />
+          </Section>
+        </Main>
+      )}
     </>
   );
 };
