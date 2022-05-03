@@ -27,7 +27,6 @@ const Course = () => {
       {course && (
         <Main>
           <Section
-            Tag={"h1"}
             title={course.title}
             actionText={course.subtitle}
             buttonText={"Back"}
