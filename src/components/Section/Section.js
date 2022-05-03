@@ -1,46 +1,40 @@
 import React from "react";
 import Button from "../Button/Button";
-import "./Section.scss";
+import {
+  Section as SectionWrapper,
+  SectionInner,
+  ActionText,
+  Heading,
+  Title,
+} from "./SectionStyle";
 
 const Section = ({
   modifiers,
   actionText,
   title,
-  Tag,
   path,
   buttonText,
   isHeadingVisible = true,
   children,
+  isTestimonial,
 }) => {
-  const modifierClasses = {
-    testimonials: "Section_testimonials",
-  };
-
-  let sectionClass = "Section";
-
-  if (modifiers) {
-    modifiers.map((modifier) => {
-      sectionClass += " " + modifierClasses[modifier];
-    });
-  }
-
   return (
-    <section className={sectionClass}>
-      <div className="Section-Inner">
-        {actionText && <span className="Section-ActionText">{actionText}</span>}
+    <SectionWrapper isTestimonial={isTestimonial}>
+      <SectionInner>
+        {actionText && <ActionText>{actionText}</ActionText>}
         {isHeadingVisible && (
-          <div className="Section-Heading">
-            {title && <Tag className="Section-Title">{title}</Tag>}
+          <Heading>
+            {title && <Title>{title}</Title>}
             {buttonText && (
               <Button path={path} modifiers={["heading", "outline"]}>
                 {buttonText}
               </Button>
             )}
-          </div>
+          </Heading>
         )}
         {children}
-      </div>
-    </section>
+      </SectionInner>
+    </SectionWrapper>
   );
 };
 
