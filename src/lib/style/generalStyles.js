@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { breakpoints } from "./theme";
+import { breakpoints, colors } from "./theme";
 
 export const Grid = styled.div`
   display: grid;
@@ -24,4 +24,49 @@ export const Grid = styled.div`
 export const Main = styled.main`
   width: 100%;
   overflow: hidden;
+`;
+
+export const Button = styled.button`
+  border: none;
+  height: 48px;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  width: 220px;
+  background: ${colors.bgPrimary};
+  color: ${colors.primary};
+  border-radius: 30px;
+  font-weight: 500;
+  display: inline-flex;
+  text-transform: uppercase;
+  transition: 0.3s;
+
+  &:hover {
+    box-shadow: 0px 1px 3px ${colors.black};
+  }
+
+  ${(props) =>
+    props.isNav &&
+    `
+    width: 150px;
+   
+    &:hover {
+      transition: all 0.3s ease-in-out;
+      filter: drop-shadow(0 3px 3px ${colors.black});
+      }`}
+
+  ${(props) =>
+    props.isSecondary &&
+    `
+    background: ${colors.primary};
+    color: ${colors.secondary};
+  `}
+
+  ${(props) =>
+    props.isOutline &&
+    `
+    border: 1px solid ${colors.primary};
+  `}
+
+  ${(props) => props.isHeading && `width: 200px;`}
 `;

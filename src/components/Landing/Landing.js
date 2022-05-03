@@ -1,5 +1,6 @@
-import Button from "../Button/Button";
+import { Button } from "../../lib/style/generalStyles";
 import LandingImg from "../../assets/images/landing.jpg";
+import { useNavigate } from "react-router-dom";
 import {
   Landing as LandingWrapper,
   Figure,
@@ -14,6 +15,7 @@ import {
 } from "./LandingStyle";
 
 const Landing = () => {
+  let navigate = useNavigate();
   return (
     <LandingWrapper>
       <Figure>
@@ -30,7 +32,7 @@ const Landing = () => {
             Make a turnaround in your career or upgrade your current skill set
             with knowledge-based lessons from IT practice
           </Subtitle>
-          <Button path="/courses" modifiers={["landing"]}>
+          <Button onClick={() => navigate("/courses")} isOutline={true}>
             Explore Courses
           </Button>
         </ContentInner>

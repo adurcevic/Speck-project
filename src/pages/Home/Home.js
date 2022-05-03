@@ -25,7 +25,6 @@ const Home = () => {
           <Landing />
         </section>
         <Section
-          Tag={"h2"}
           title={"Open new possibilites"}
           actionText={"Learn something new"}
           buttonText={"More Courses"}

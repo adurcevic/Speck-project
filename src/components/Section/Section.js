@@ -1,5 +1,6 @@
 import React from "react";
-import Button from "../Button/Button";
+import { useNavigate } from "react-router-dom";
+import { Button } from "../../lib/style/generalStyles";
 import {
   Section as SectionWrapper,
   SectionInner,
@@ -18,6 +19,8 @@ const Section = ({
   children,
   isTestimonial,
 }) => {
+  let navigate = useNavigate();
+
   return (
     <SectionWrapper isTestimonial={isTestimonial}>
       <SectionInner>
@@ -26,7 +29,12 @@ const Section = ({
           <Heading>
             {title && <Title>{title}</Title>}
             {buttonText && (
-              <Button path={path} modifiers={["heading", "outline"]}>
+              <Button
+                onClick={() => navigate(path)}
+                isHeading={true}
+                isOutline={true}
+                // modifiers={["heading", "outline"]}
+              >
                 {buttonText}
               </Button>
             )}

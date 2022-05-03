@@ -2,7 +2,8 @@ import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import "./Header.scss";
 import LogoImg from "../../assets/images/logo.svg";
-import Button from "../Button/Button";
+import { Button } from "../../lib/style/generalStyles";
+
 import {
   Header as HeaderWrapper,
   HeaderInner,
@@ -25,10 +26,12 @@ const Header = ({ isSecondary }) => {
         <HeaderNav>
           <HeaderNavLink to="/courses">Courses</HeaderNavLink>
           <ButtonLink to="/">
-            <Button modifiers={["nav"]}>Sign In</Button>
+            <Button isNav={true}>Sign In</Button>
           </ButtonLink>
           <ButtonLink to="/">
-            <Button modifiers={["nav", "secondary"]}>Register</Button>
+            <Button isNav={true} isSecondary={true}>
+              Register
+            </Button>
           </ButtonLink>
         </HeaderNav>
       </HeaderInner>
