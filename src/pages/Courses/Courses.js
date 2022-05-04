@@ -19,7 +19,11 @@ const Courses = () => {
     <>
       <Header isSecondary={[true]} />
       <Main>
-        <Section Tag={"h1"} title={"All lectures"} isHeadingVisible={true}>
+        <Section
+          title={"All lectures"}
+          isHeadingVisible={true}
+          isMainTitle={true}
+        >
           {courses && (
             <Grid>
               {courses.map(

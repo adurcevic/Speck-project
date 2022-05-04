@@ -6,7 +6,8 @@ import {
   SectionInner,
   ActionText,
   Heading,
-  Title,
+  H2,
+  H1,
 } from "./SectionStyle";
 
 const Section = ({
@@ -18,6 +19,7 @@ const Section = ({
   isHeadingVisible = true,
   children,
   isTestimonial,
+  isMainTitle = false,
 }) => {
   let navigate = useNavigate();
 
@@ -27,7 +29,7 @@ const Section = ({
         {actionText && <ActionText>{actionText}</ActionText>}
         {isHeadingVisible && (
           <Heading>
-            {title && <Title>{title}</Title>}
+            {title && { isMainTitle } ? <H1>{title}</H1> : <H2>{title}</H2>}
             {buttonText && (
               <Button
                 onClick={() => navigate(path)}

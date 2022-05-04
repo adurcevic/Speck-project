@@ -42,7 +42,23 @@ export const Heading = styled.div`
   }
 `;
 
-export const Title = styled.h2`
+export const H2 = styled.h2`
+  color: ${colors.textPrimary};
+  font-size: 26px;
+  font-weight: 500;
+  margin-bottom: 32px;
+
+  @media (${breakpoints.tablet}) {
+    font-size: 32px;
+    margin-bottom: 0;
+  }
+
+  @media (${breakpoints.destkop}) {
+    font-size: 36px;
+  }
+`;
+
+export const H1 = styled.h1`
   color: ${colors.textPrimary};
   font-size: 26px;
   font-weight: 500;

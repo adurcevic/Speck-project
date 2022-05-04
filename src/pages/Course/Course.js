@@ -31,6 +31,7 @@ const Course = () => {
             actionText={course.subtitle}
             buttonText={"Back"}
             isHeadingVisible={true}
+            isMainTitle={true}
             path={-1}
           >
             <SingleCourse
