@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom"; //
-import { colors, breakpoints } from "../../lib/style/theme";
+import { NavLink } from "react-router-dom"; //
+import { colors } from "../../lib/style/theme";
 
 export const StyledMenu = styled.nav`
   display: flex;
@@ -20,7 +20,7 @@ export const StyledMenu = styled.nav`
   backdrop-filter: blur(8px);
 `;
 
-export const MenuLinks = styled(Link)`
+export const MenuLinks = styled(NavLink)`
   font-size: 24px;
   text-transform: uppercase;
   padding: 20px 0;

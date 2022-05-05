@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import { NavLink, Link } from "react-router-dom";
 import LogoImg from "../../assets/images/logo.svg";
 import { Button } from "../../lib/style/generalStyles";
 import Hamburger from "../Hamburger/Hamburger";
