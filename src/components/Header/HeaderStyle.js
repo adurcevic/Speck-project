@@ -47,6 +47,8 @@ export const LogoImg = styled.img`
 export const Hamburger = styled(HamburgerIcon)`
   width: 30px;
   height: auto;
+  cursor: pointer;
+  z-index: 1;
 
   @media (${breakpoints.destkop}) {
     display: none;
@@ -55,6 +57,39 @@ export const Hamburger = styled(HamburgerIcon)`
   path {
     fill: ${colors.bgPrimary};
   }
+`;
+
+export const StyledMenu = styled.nav`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #bf3939e1;
+  height: 100vh;
+  width: 100%;
+  text-align: center;
+  padding: 60px 20px 20px 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: transform 0.3s ease-in-out;
+  transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+
+  @media (${breakpoints.tablet}) {
+    width: 25%;
+    justify-content: flex-start;
+    text-align: left;
+  }
+`;
+
+export const MenuLinks = styled.a`
+  font-size: 20px;
+  text-transform: uppercase;
+  padding: 20px 0;
+  font-weight: bold;
+  letter-spacing: 5px;
+  color: ${colors.secondary};
 `;
 
 export const HeaderNav = styled.nav`
