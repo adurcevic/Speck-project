@@ -28,10 +28,10 @@ const Header = ({ isSecondary }) => {
         <HamburgerMenu open={open} setOpen={setOpen} />
         <HeaderNav>
           <HeaderNavLink to="/courses">Courses</HeaderNavLink>
-          <ButtonLink to="/">
+          <ButtonLink to="/sign-in">
             <Button isNav={true}>Sign In</Button>
           </ButtonLink>
-          <ButtonLink to="/">
+          <ButtonLink to="/register">
             <Button isNav={true} isSecondary={true}>
               Register
             </Button>

@@ -20,6 +20,7 @@ const Section = ({
   children,
   isTestimonial,
   isMainTitle = false,
+  isCentered = false,
 }) => {
   let navigate = useNavigate();
 
@@ -29,7 +30,11 @@ const Section = ({
         {actionText && <ActionText>{actionText}</ActionText>}
         {isHeadingVisible && (
           <Heading>
-            {title && { isMainTitle } ? <H1>{title}</H1> : <H2>{title}</H2>}
+            {title && { isMainTitle } ? (
+              <H1 isCentered={isCentered}>{title}</H1>
+            ) : (
+              <H2 isCentered={isCentered}>{title}</H2>
+            )}
             {buttonText && (
               <Button
                 onClick={() => navigate(path)}
