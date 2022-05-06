@@ -4,6 +4,7 @@ import coursesMock from "../../lib/mock/courses";
 import Header from "../../components/Header/Header";
 import Section from "../../components/Section/Section";
 import CourseCard from "../../components/CourseCard/CourseCard";
+import SearchBar from "../../components/SearchBar/SearchBar";
 import { Grid, Main, SpinnerWrapper } from "../../lib/style/generalStyles";
 import { RotatingLines } from "react-loader-spinner";
 
@@ -29,6 +30,7 @@ const Courses = () => {
     <>
       <Header isSecondary={[true]} />
       <Main>
+        <SearchBar></SearchBar>
         <Section
           title={"All lectures"}
           isHeadingVisible={true}
