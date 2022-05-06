@@ -70,3 +70,10 @@ export const Button = styled.button`
 
   ${(props) => props.isHeading && `width: 200px;`}
 `;
+
+export const SpinnerWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+`;
