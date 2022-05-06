@@ -15,6 +15,8 @@ export const Section = styled.section`
 `;
 
 export const SectionInner = styled.div`
+  position: relative;
+
   @media (${breakpoints.destkop}) {
     width: 960px;
     margin: 0 auto;

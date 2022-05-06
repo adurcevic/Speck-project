@@ -5,6 +5,7 @@ import Header from "../../components/Header/Header";
 import Section from "../../components/Section/Section";
 import CourseCard from "../../components/CourseCard/CourseCard";
 import { Grid, Main } from "../../lib/style/generalStyles";
+// import { Oval } from "react-loader-spinner";
 
 const Courses = () => {
   const [courses, setCourses] = useState(null);

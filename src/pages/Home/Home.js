@@ -7,15 +7,24 @@ import Section from "../../components/Section/Section";
 import CourseCard from "../../components/CourseCard/CourseCard";
 import Testimonial from "../../components/Testimonial/Testimonial";
 import { Grid, Main } from "../../lib/style/generalStyles";
+// import { Oval } from "react-loader-spinner";
 
 const Home = () => {
   const [courses, setCourses] = useState(null);
+  // const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
       setCourses(coursesMock);
     }, 1000);
   }, []);
+
+  // useEffect(() => {
+  //   let timer = setTimeout(() => setLoaded(true), 1000);
+  //   return () => {
+  //     clearTimeout(timer);
+  //   };
+  // }, []);
 
   return (
     <>
