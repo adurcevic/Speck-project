@@ -5,19 +5,21 @@ import SearchIcon from "@material-ui/icons/Search";
 import CloseIcon from "@material-ui/icons/Close";
 
 export const Search = styled.div`
-  padding: 0 15px;
-  margin-bottom: 40px;
+  /* padding: 0 15px; */
+
+  /* margin-bottom: 40px; */
 
   @media (${breakpoints.tabletMedium}) {
     max-width: 400px;
     padding: 0;
-    margin: 0 auto 40px auto;
+    /* margin: 0 auto; */
   }
 `;
 
 export const SearchInputs = styled.div`
   position: relative;
   width: 300px;
+  justify-self: center;
 `;
 
 export const SearchBar = styled.input`
@@ -57,11 +59,13 @@ export const ClearIcon = styled(CloseIcon)`
 `;
 
 export const Courses = styled.div`
+  position: absolute;
+  z-index: 1;
   margin-top: 5px;
   width: 250px;
   height: 200px;
   background-color: ${colors.bgPrimary};
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 3px;
   overflow: hidden;
   overflow-y: auto;
 
