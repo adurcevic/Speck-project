@@ -1,34 +1,43 @@
 import React from "react";
+// import { useState } from "react";
 import {
   Search,
   SearchInputs,
-  SearchInput,
-  SearchIcon as Icon,
-  Data,
+  SearchBar as Bar,
+  IconContainer,
+  Icon,
+  Courses,
+  SearchOutput,
+  Output,
 } from "./SearchBarStyle";
-import SearchIcon from "@material-ui/icons/Search";
 import coursesMock from "../../lib/mock/courses";
-import { Link } from "react-router-dom";
 
 function SearchBar({ placeholder, data, disabled }) {
+  // const [focus, setFocus] = useState(false);
+
   return (
     <Search>
       <SearchInputs>
-        <SearchInput
+        <Bar
+          // onClick={() => setFocus((focus = true))}
           type="text"
           placeholder={placeholder}
           data={data}
           disabled={disabled}
         />
-        <Icon>
-          <SearchIcon />
-        </Icon>
+        <IconContainer>
+          <Icon />
+        </IconContainer>
       </SearchInputs>
-      <Data>
+      <Courses>
         {coursesMock.map((value, key) => {
-          return <Link to={`/course/${value.id}`}> {value.title} </Link>;
+          return (
+            <SearchOutput to={`/course/${value.id}`}>
+              <Output>{value.title}</Output>
+            </SearchOutput>
+          );
         })}
-      </Data>
+      </Courses>
     </Search>
   );
 }
