@@ -21,6 +21,7 @@ const Section = ({
   children,
   isTestimonial,
   isMainTitle = false,
+  isCentered = false,
   isSearchBarVisible = false,
   disabled,
   placeholder,
@@ -33,7 +34,11 @@ const Section = ({
         {actionText && <ActionText>{actionText}</ActionText>}
         {isHeadingVisible && (
           <Heading>
-            {title && { isMainTitle } ? <H1>{title}</H1> : <H2>{title}</H2>}
+            {title && { isMainTitle } ? (
+              <H1 isCentered={isCentered}>{title}</H1>
+            ) : (
+              <H2 isCentered={isCentered}>{title}</H2>
+            )}
             {isSearchBarVisible && (
               <SearchBar disabled={disabled} placeholder={placeholder} />
             )}
@@ -42,7 +47,6 @@ const Section = ({
                 onClick={() => navigate(path)}
                 isHeading={true}
                 isOutline={true}
-                
               >
                 {buttonText}
               </Button>
