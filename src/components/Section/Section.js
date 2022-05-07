@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../lib/style/generalStyles";
+import SearchBar from "../SearchBar/SearchBar";
 import {
   Section as SectionWrapper,
   SectionInner,
@@ -20,6 +21,7 @@ const Section = ({
   children,
   isTestimonial,
   isMainTitle = false,
+  isSearchBarVisible = false,
 }) => {
   let navigate = useNavigate();
 
@@ -30,6 +32,7 @@ const Section = ({
         {isHeadingVisible && (
           <Heading>
             {title && { isMainTitle } ? <H1>{title}</H1> : <H2>{title}</H2>}
+            {isSearchBarVisible && <SearchBar />}
             {buttonText && (
               <Button
                 onClick={() => navigate(path)}

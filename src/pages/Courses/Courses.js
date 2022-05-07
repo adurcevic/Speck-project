@@ -30,11 +30,12 @@ const Courses = () => {
     <>
       <Header isSecondary={[true]} />
       <Main>
-        <SearchBar></SearchBar>
+        {/* <SearchBar></SearchBar> */}
         <Section
           title={"All lectures"}
           isHeadingVisible={true}
           isMainTitle={true}
+          isSearchBarVisible={true}
         >
           {!loaded ? (
             <Grid>

@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { colors, breakpoints } from "../../lib/style/theme";
 import { Link } from "react-router-dom";
 import SearchIcon from "@material-ui/icons/Search";
+import CloseIcon from "@material-ui/icons/Close";
 
 export const Search = styled.div`
   padding: 0 15px;
@@ -15,17 +16,16 @@ export const Search = styled.div`
 `;
 
 export const SearchInputs = styled.div`
-  display: flex;
+  position: relative;
+  width: 300px;
 `;
 
 export const SearchBar = styled.input`
   width: 300px;
+  padding-left: 5px;
 
   border: 1px solid ${colors.textSecondary};
-  border-right: none;
   border-radius: 6px;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
   line-height: 40px;
   outline: none;
   font-size: 14px;
@@ -40,22 +40,20 @@ export const SearchBar = styled.input`
 `;
 
 export const IconContainer = styled.div`
-  width: 50px;
-  background-color: ${colors.bgPrimary};
-  display: grid;
-  place-items: center;
-  border: 1px solid ${colors.textSecondary};
-  border-left: none;
-  border-top-right-radius: 6px;
-  border-bottom-right-radius: 6px;
-
-  &:focus {
-    border: ${colors.textPrimary};
-  }
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 30px;
 `;
 
 export const Icon = styled(SearchIcon)`
   font-size: 30px !important;
+`;
+
+export const ClearIcon = styled(CloseIcon)`
+  font-size: 30px !important;
+  cursor: pointer;
 `;
 
 export const Courses = styled.div`
@@ -77,7 +75,11 @@ export const SearchOutput = styled(Link)`
   height: 50px;
   display: flex;
   align-items: center;
-  color: ${colors.textSecondary};
+  color: ${colors.textPrimary};
+
+  &:hover {
+    background-color: ${colors.bgSecondary};
+  }
 `;
 
 export const Output = styled.p`
