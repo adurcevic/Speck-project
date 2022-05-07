@@ -18,12 +18,19 @@ export const Search = styled.div`
 
 export const SearchInputs = styled.div`
   position: relative;
-  width: 300px;
-  justify-self: center;
+  width: 290px;
+
+  @media (${breakpoints.tablet}) {
+    width: 320px;
+  }
+
+  @media (${breakpoints.destkopLarge}) {
+    width: 350px;
+  }
 `;
 
 export const SearchBar = styled.input`
-  width: 300px;
+  width: 100%;
   padding-left: 5px;
 
   border: 1px solid ${colors.textSecondary};
@@ -51,10 +58,12 @@ export const IconContainer = styled.div`
 
 export const Icon = styled(SearchIcon)`
   font-size: 30px !important;
+  fill: ${colors.textPrimary} !important;
 `;
 
 export const ClearIcon = styled(CloseIcon)`
   font-size: 30px !important;
+  fill: ${colors.textPrimary} !important;
   cursor: pointer;
 `;
 

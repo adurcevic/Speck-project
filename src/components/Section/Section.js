@@ -23,6 +23,7 @@ const Section = ({
   isMainTitle = false,
   isSearchBarVisible = false,
   disabled,
+  placeholder,
 }) => {
   let navigate = useNavigate();
 
@@ -33,7 +34,9 @@ const Section = ({
         {isHeadingVisible && (
           <Heading>
             {title && { isMainTitle } ? <H1>{title}</H1> : <H2>{title}</H2>}
-            {isSearchBarVisible && <SearchBar disabled={disabled} />}
+            {isSearchBarVisible && (
+              <SearchBar disabled={disabled} placeholder={placeholder} />
+            )}
             {buttonText && (
               <Button
                 onClick={() => navigate(path)}

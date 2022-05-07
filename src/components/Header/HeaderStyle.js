@@ -38,7 +38,7 @@ export const HeaderInner = styled.div`
 `;
 
 export const LogoLink = styled(Link)`
-  z-index: ${({ open }) => (open ? "1" : "0")};
+  z-index: ${({ open }) => (open ? "10" : "0")};
 `;
 
 export const LogoImg = styled.img`

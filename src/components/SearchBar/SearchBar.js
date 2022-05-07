@@ -37,10 +37,10 @@ function SearchBar({ placeholder, disabled }) {
       <SearchInputs>
         <Bar
           type="text"
-          placeholder="Search courses..."
+          placeholder={placeholder}
           disabled={disabled}
           onChange={handleSearch}
-          maxLength={20}
+          maxLength={35}
           value={wordEntered}
         />
         <IconContainer>

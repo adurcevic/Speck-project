@@ -29,13 +29,13 @@ const Courses = () => {
     <>
       <Header isSecondary={[true]} />
       <Main>
-        {/* <SearchBar></SearchBar> */}
         <Section
           title={"All lectures"}
           isHeadingVisible={true}
           isMainTitle={true}
           isSearchBarVisible={true}
           disabled={!loaded ? true : false}
+          placeholder={"Search courses..."}
         >
           {!loaded ? (
             <Grid>
