@@ -4,17 +4,7 @@ import { Link } from "react-router-dom";
 import SearchIcon from "@material-ui/icons/Search";
 import CloseIcon from "@material-ui/icons/Close";
 
-export const Search = styled.div`
-  /* padding: 0 15px; */
-
-  /* margin-bottom: 40px; */
-
-  @media (${breakpoints.tabletMedium}) {
-    max-width: 400px;
-    padding: 0;
-    /* margin: 0 auto; */
-  }
-`;
+export const Search = styled.div``;
 
 export const SearchInputs = styled.div`
   position: relative;
@@ -32,7 +22,7 @@ export const SearchInputs = styled.div`
 export const SearchBar = styled.input`
   width: 100%;
   padding-left: 5px;
-
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 3px;
   border: 1px solid ${colors.textSecondary};
   border-radius: 6px;
   line-height: 40px;
@@ -74,7 +64,9 @@ export const Courses = styled.div`
   width: 250px;
   height: 200px;
   background-color: ${colors.bgPrimary};
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 3px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 3px;
   overflow: hidden;
   overflow-y: auto;
 

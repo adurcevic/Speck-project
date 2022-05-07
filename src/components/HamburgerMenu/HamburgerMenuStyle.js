@@ -10,7 +10,6 @@ export const StyledMenu = styled.nav`
   height: 100vh;
   width: 100%;
   text-align: center;
-  padding: 60px 20px 20px 20px;
   position: absolute;
   top: 0;
   right: 0;
