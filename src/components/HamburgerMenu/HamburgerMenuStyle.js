@@ -18,6 +18,7 @@ export const StyledMenu = styled.nav`
   transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
+  z-index: 9;
 `;
 
 export const MenuLinks = styled(NavLink)`

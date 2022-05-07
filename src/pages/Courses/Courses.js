@@ -33,6 +33,9 @@ const Courses = () => {
           title={"All lectures"}
           isHeadingVisible={true}
           isMainTitle={true}
+          isSearchBarVisible={true}
+          disabled={!loaded ? true : false}
+          placeholder={"Search courses..."}
         >
           {!loaded ? (
             <Grid>
