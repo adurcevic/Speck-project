@@ -21,7 +21,7 @@ const Header = ({ isSecondary }) => {
   return (
     <HeaderWrapper isSecondary={isSecondary}>
       <HeaderInner>
-        <LogoLink to="/" open={open} setOpen={setOpen}>
+        <LogoLink to="/" open={open}>
           <LogoElement src={LogoImg} alt="Academy logo" />
         </LogoLink>
         <Hamburger open={open} setOpen={setOpen} />

@@ -46,9 +46,9 @@ const Home = () => {
               {[...Array(n)].map((e, i) => (
                 <SpinnerWrapper key={i}>
                   <RotatingLines
-                    width="100"
+                    width="75"
                     strokeColor="#bf3939"
-                    strokeWidth="1"
+                    strokeWidth="0.8"
                   />
                 </SpinnerWrapper>
               ))}
