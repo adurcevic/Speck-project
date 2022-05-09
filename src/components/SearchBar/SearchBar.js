@@ -54,7 +54,7 @@ function SearchBar({ placeholder, disabled }) {
 
       {filteredData.length != 0 && (
         <Courses>
-          {filteredData.map((value) => {
+          {filteredData.map((value, key) => {
             return (
               <SearchOutput to={`/course/${value.id}`}>
                 <Output>{value.title}</Output>
