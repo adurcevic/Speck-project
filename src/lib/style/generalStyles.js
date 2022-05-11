@@ -80,13 +80,12 @@ export const Button = styled.button`
     border: 1px solid ${colors.primary};
   `}
 
-  ${(props) =>
+  /* ${(props) =>
     props.isProfile &&
-    `
-    display: ${({ active }) => (!active ? "none" : "block")}
-  `}
+    `display: ${({ active }) => (!active ? "none" : "block")};`} */
 
   ${(props) => props.isHeading && `width: 200px;`}
+  
   ${(props) =>
     props.isForm &&
     `

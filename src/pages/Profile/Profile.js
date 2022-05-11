@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import Header from "../../components/Header/Header";
 import Section from "../../components/Section/Section";
+import PasswordWidget from "../../components/PasswordWidget/PasswordWidget";
 import { Grid } from "../../lib/style/generalStyles";
 import {
   Form,
@@ -70,7 +71,6 @@ const Profile = () => {
                     firstName: "",
                     lastName: "",
                     email: "",
-
                     githubUsername: "",
                     zeplinUsername: "",
                     activeFacultyYear: "",
@@ -79,7 +79,7 @@ const Profile = () => {
               }}
             >
               {(formik) => (
-                <Form isCentered>
+                <Form>
                   <FormRow>
                     <Label htmlFor="firstName">First name:</Label>
                     <Field
@@ -96,7 +96,6 @@ const Profile = () => {
                       type="text"
                       name="lastName"
                       placeholder="Last name..."
-                      value="Đurčević"
                       disabled={formik.isSubmitting}
                     />
                     <ErrorMessage component={"div"} name="lastName" />
@@ -107,7 +106,6 @@ const Profile = () => {
                       type="email"
                       name="email"
                       placeholder="Email..."
-                      value="antonio.durcevic@gmail.com"
                       disabled={formik.isSubmitting}
                     />
                     <ErrorMessage component={"div"} name="email" />
@@ -118,7 +116,6 @@ const Profile = () => {
                       type="text"
                       name="githubUsername"
                       placeholder="GitHub Username..."
-                      value="Rose432"
                       disabled={formik.isSubmitting}
                     />
                     <ErrorMessage component={"div"} name="gitHubUsername" />
@@ -129,7 +126,6 @@ const Profile = () => {
                       type="text"
                       name="zeplinUsername"
                       placeholder="Zeplin username..."
-                      value="Rose55"
                       disabled={formik.isSubmitting}
                     />
                     <ErrorMessage component={"div"} name="zeplinUsername" />
@@ -156,14 +152,98 @@ const Profile = () => {
                     <ErrorMessage component={"div"} name="activeFacultyYear" />
                   </FormRow>
                   <FormRow>
-                    <Button isOutline disabled={formik.isSubmitting}>
-                      {formik.isSubmitting ? "Processing..." : "Update"}
-                    </Button>
+                    <div style={{ display: !active ? "none" : "block" }}>
+                      <Button isOutline disabled={formik.isSubmitting}>
+                        {formik.isSubmitting ? "Processing..." : "Update"}
+                      </Button>
+                    </div>
                   </FormRow>
                 </Form>
               )}
             </Formik>
           </Fieldset>
+          <PasswordWidget active={active}>
+            <div style={{ display: !active ? "none" : "block" }}>
+              <Formik
+                initialValues={{
+                  oldPassword: "",
+                  newPassword: "",
+                  newPasswordConfirmed: "",
+                }}
+                validationSchema={Yup.object({
+                  oldPassword: Yup.string().required(
+                    "Old password is required"
+                  ),
+                  newPassword: Yup.string()
+                    .min(8, "New password must be at least 8 characters long")
+                    .required("New password is required"),
+                  newPasswordConfirmed: Yup.string().test(
+                    "passwords-match",
+                    "Passwords must match",
+                    function (value) {
+                      return this.parent.newPassword === value;
+                    }
+                  ),
+                })}
+                onSubmit={(values, actions) => {
+                  setTimeout(() => {
+                    alert(
+                      JSON.stringify("Password updated successfully", null, 2)
+                    );
+                    actions.setSubmitting(false);
+                    actions.resetForm({
+                      oldPassword: "",
+                      newPassword: "",
+                      newPasswordConfirmed: "",
+                    });
+                  }, 1000);
+                }}
+              >
+                {(formik) => (
+                  <Form>
+                    <FormRow>
+                      <Field
+                        type="password"
+                        name="oldPassword"
+                        placeholder="Old password..."
+                        disabled={formik.isSubmitting}
+                      />
+                      <ErrorMessage component={"div"} name="oldPassword" />
+                    </FormRow>
+                    <FormRow>
+                      <Field
+                        type="password"
+                        name="newPassword"
+                        placeholder="New password..."
+                        disabled={formik.isSubmitting}
+                      />
+                      <ErrorMessage component={"div"} name="newPassword" />
+                    </FormRow>
+                    <FormRow>
+                      <Field
+                        type="password"
+                        name="newPasswordConfirmed"
+                        placeholder="New password confirmed..."
+                        disabled={formik.isSubmitting}
+                      />
+                      <ErrorMessage
+                        component={"div"}
+                        name="newPasswordConfirmed"
+                      />
+                    </FormRow>
+
+                    <FormRow>
+                      <Button isOutline disabled={formik.isSubmitting}>
+                        {formik.isSubmitting
+                          ? "Processing..."
+                          : "Update password"}
+                      </Button>
+                    </FormRow>
+                  </Form>
+                )}
+              </Formik>
+            </div>
+          </PasswordWidget>
         </Grid>
       </Section>
     </>
