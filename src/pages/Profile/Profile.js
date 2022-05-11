@@ -25,6 +25,10 @@ const Profile = () => {
     active ? setActive(false) : setActive(true);
   };
 
+  const initialState = function () {
+    setActive(false);
+  };
+
   return (
     <>
       <Header isSecondary></Header>
@@ -37,7 +41,7 @@ const Profile = () => {
         <Grid>
           <Fieldset disabled={!active ? true : false}>
             <Formik
-              enableReinitialize={true}
+              enableReinitialize
               initialValues={{
                 firstName: "Antonio",
                 lastName: "Đurčević",
@@ -50,7 +54,7 @@ const Profile = () => {
                 firstName: Yup.string().required("First name is required"),
                 lastName: Yup.string().required("Last name is required"),
                 email: Yup.string()
-                  .email("Inavlid email address")
+                  .email("Invalid email address")
                   .required("Email is required"),
 
                 githubUsername: Yup.string().required(
@@ -68,18 +72,21 @@ const Profile = () => {
                   alert(JSON.stringify(values, null, 2));
                   actions.setSubmitting(false);
                   actions.resetForm({
-                    firstName: "",
-                    lastName: "",
-                    email: "",
-                    githubUsername: "",
-                    zeplinUsername: "",
-                    activeFacultyYear: "",
+                    values: {
+                      firstName: "",
+                      lastName: "",
+                      email: "",
+                      githubUsername: "",
+                      zeplinUsername: "",
+                      activeFacultyYear: "",
+                    },
                   });
+                  initialState();
                 }, 1000);
               }}
             >
               {(formik) => (
-                <Form>
+                <Form enableReinitialize>
                   <FormRow>
                     <Label htmlFor="firstName">First name:</Label>
                     <Field
@@ -196,6 +203,7 @@ const Profile = () => {
                       newPassword: "",
                       newPasswordConfirmed: "",
                     });
+                    initialState();
                   }, 1000);
                 }}
               >
