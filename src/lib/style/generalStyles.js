@@ -80,6 +80,12 @@ export const Button = styled.button`
     border: 1px solid ${colors.primary};
   `}
 
+  ${(props) =>
+    props.isProfile &&
+    `
+    display: ${({ active }) => (!active ? "none" : "block")}
+  `}
+
   ${(props) => props.isHeading && `width: 200px;`}
   ${(props) =>
     props.isForm &&
@@ -149,10 +155,14 @@ export const ErrorMessage = styled(ErrorMessageFormik)`
 
 export const Label = styled.label`
   display: block;
-  font-size: 18px;
+  font-size: 16px;
   color: ${colors.textPrimary};
   margin-bottom: 5px;
-  font-weight: 500;
+  font-weight: bold;
+`;
+
+export const Fieldset = styled.fieldset`
+  border: none;
 `;
 
 // SPINNER WRAPPER
