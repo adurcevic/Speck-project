@@ -1,5 +1,4 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import { Button } from "../../lib/style/generalStyles";
 import SearchBar from "../SearchBar/SearchBar";
 import {
@@ -15,7 +14,7 @@ const Section = ({
   modifiers,
   actionText,
   title,
-  path,
+  action,
   buttonText,
   isHeadingVisible = true,
   children,
@@ -26,8 +25,6 @@ const Section = ({
   disabled,
   placeholder,
 }) => {
-  let navigate = useNavigate();
-
   return (
     <SectionWrapper isTestimonial={isTestimonial}>
       <SectionInner>
@@ -43,11 +40,7 @@ const Section = ({
               <SearchBar disabled={disabled} placeholder={placeholder} />
             )}
             {buttonText && (
-              <Button
-                onClick={() => navigate(path)}
-                isHeading={true}
-                isOutline={true}
-              >
+              <Button onClick={action} isHeading={true} isOutline={true}>
                 {buttonText}
               </Button>
             )}

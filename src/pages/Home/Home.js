@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import coursesMock from "../../lib/mock/courses";
 import Header from "../../components/Header/Header";
 import Landing from "../../components/Landing/Landing";
@@ -13,6 +14,7 @@ const Home = () => {
   const [courses, setCourses] = useState(null);
   const [loaded, setLoaded] = useState(false);
   const n = 4;
+  let navigate = useNavigate();
 
   useEffect(() => {
     setTimeout(() => {
@@ -39,7 +41,7 @@ const Home = () => {
           actionText={"Learn something new"}
           buttonText={"More Courses"}
           isHeadingVisible={true}
-          path={"/courses"}
+          action={() => navigate("/courses")}
         >
           {!loaded ? (
             <Grid>

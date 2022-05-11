@@ -125,10 +125,10 @@ const Register = () => {
                 <Field
                   type="text"
                   name="githubUsername"
-                  placeholder="Github Username..."
+                  placeholder="GitHub Username..."
                   disabled={formik.isSubmitting}
                 />
-                <ErrorMessage component={"div"} name="githubUsername" />
+                <ErrorMessage component={"div"} name="gitHubUsername" />
               </FormRow>
               <FormRow>
                 <Field
@@ -141,10 +141,11 @@ const Register = () => {
               </FormRow>
               <FormRow>
                 <Select
+                  disabled={formik.isSubmitting}
                   id="activeFacultyYear"
                   {...formik.getFieldProps("activeFacultyYear")}
                 >
-                  <Option value="" disabled hidden>
+                  <Option value="" hidden>
                     Choose an Active faculty year
                   </Option>
                   <Option value="0">Not a student</Option>

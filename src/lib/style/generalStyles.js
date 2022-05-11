@@ -147,6 +147,14 @@ export const ErrorMessage = styled(ErrorMessageFormik)`
   padding-top: 8px;
 `;
 
+export const Label = styled.label`
+  display: block;
+  font-size: 18px;
+  color: ${colors.textPrimary};
+  margin-bottom: 5px;
+  font-weight: 500;
+`;
+
 // SPINNER WRAPPER
 
 export const SpinnerWrapper = styled.div`

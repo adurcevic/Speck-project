@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
+
 import coursesMock from "../../lib/mock/courses";
 import Header from "../../components/Header/Header";
 import Section from "../../components/Section/Section";
