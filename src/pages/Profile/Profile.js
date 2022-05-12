@@ -38,10 +38,10 @@ const Profile = () => {
         action={handleClick}
         buttonText={!active ? "Edit" : "Cancel"}
       >
-        <Grid>
+        <Grid isProfile>
           <Fieldset disabled={!active ? true : false}>
             <Formik
-              enableReinitialize
+              enableReinitialize={true}
               initialValues={{
                 firstName: "Antonio",
                 lastName: "Đurčević",
@@ -86,7 +86,7 @@ const Profile = () => {
               }}
             >
               {(formik) => (
-                <Form enableReinitialize>
+                <Form isProfile>
                   <FormRow>
                     <Label htmlFor="firstName">First name:</Label>
                     <Field
@@ -194,9 +194,7 @@ const Profile = () => {
                 })}
                 onSubmit={(values, actions) => {
                   setTimeout(() => {
-                    alert(
-                      JSON.stringify("Password updated successfully", null, 2)
-                    );
+                    alert(JSON.stringify("Password updated successfully"));
                     actions.setSubmitting(false);
                     actions.resetForm({
                       oldPassword: "",
@@ -208,7 +206,7 @@ const Profile = () => {
                 }}
               >
                 {(formik) => (
-                  <Form>
+                  <Form isProfile>
                     <FormRow>
                       <Field
                         type="password"

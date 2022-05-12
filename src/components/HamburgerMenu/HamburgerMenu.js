@@ -5,6 +5,7 @@ export const Menu = ({ open }) => {
   return (
     <StyledMenu open={open}>
       <MenuLinks to="/courses">Courses</MenuLinks>
+      <MenuLinks to="/profile">Profile</MenuLinks>
       <MenuLinks to="/sign-in">Sign In</MenuLinks>
       <MenuLinks to="/register">Register</MenuLinks>
     </StyledMenu>

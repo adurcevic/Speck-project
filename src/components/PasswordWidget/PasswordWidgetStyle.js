@@ -6,13 +6,22 @@ export const PasswordContainer = styled.div`
   border-radius: 5px;
   background-color: #e9ecef;
   align-self: start;
+
+  @media (${breakpoints.tabletSmall}) {
+    justify-self: center;
+  }
+  @media (${breakpoints.tablet}) {
+    justify-self: start;
+  }
 `;
 
 export const PasswordWrapper = styled.div`
-  min-width: 300px;
-
   @media (${breakpoints.tabletSmall}) {
-    min-width: 350px;
+    width: 350px;
+  }
+
+  @media (${breakpoints.tablet}) {
+    width: 300px;
   }
 `;
 

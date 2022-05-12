@@ -27,6 +27,32 @@ export const Grid = styled.div`
   @media (${breakpoints.destkopLarge}) {
     grid-template-columns: repeat(4, 1fr);
   }
+
+  ${(props) =>
+    props.isProfile &&
+    `
+    @media (${breakpoints.tabletSmall}) {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      row-gap: 48px;
+  }
+
+    @media (${breakpoints.tablet}) {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 0px;
+      justify-items: start;
+  }
+
+    @media (${breakpoints.destkop}) {
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 48px;
+  }
+
+  @media (${breakpoints.destkopLarge}) {
+      grid-template-columns: repeat(4, 1fr);
+  }  
+
+  `}
 `;
 
 // MAIN STYLE
@@ -80,10 +106,6 @@ export const Button = styled.button`
     border: 1px solid ${colors.primary};
   `}
 
-  /* ${(props) =>
-    props.isProfile &&
-    `display: ${({ active }) => (!active ? "none" : "block")};`} */
-
   ${(props) => props.isHeading && `width: 200px;`}
   
   ${(props) =>
@@ -106,6 +128,18 @@ export const Form = styled(FormFormik)`
             margin: 0 auto;
         `}
   }
+
+  ${(props) =>
+    props.isProfile &&
+    `
+      @media (${breakpoints.tablet}) {
+    width: 300px;
+      }
+
+    @media (${breakpoints.destkop}) {
+    width: 400px;
+  
+    }`}
 `;
 
 export const FormRow = styled.div`
