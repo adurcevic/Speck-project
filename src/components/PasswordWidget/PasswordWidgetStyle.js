@@ -4,7 +4,7 @@ import { colors, breakpoints } from "../../lib/style/theme";
 export const PasswordContainer = styled.div`
   padding: 25px;
   border-radius: 5px;
-  background-color: #e9ecef;
+  background-color: ${colors.bgTertiary};
   align-self: start;
 
   @media (${breakpoints.tabletSmall}) {

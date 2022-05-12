@@ -41,7 +41,7 @@ const Profile = () => {
         <Grid isProfile>
           <Fieldset disabled={!active ? true : false}>
             <Formik
-              enableReinitialize={true}
+              // enableReinitialize={true}
               initialValues={{
                 firstName: "Antonio",
                 lastName: "Đurčević",
