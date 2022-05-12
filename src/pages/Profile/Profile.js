@@ -21,7 +21,16 @@ import { Button } from "../../lib/style/generalStyles";
 const Profile = () => {
   const [active, setActive] = useState(false);
 
-  const handleClick = () => {
+  let initialValues = {
+    firstName: "Antonio",
+    lastName: "Đurčević",
+    email: "antonio.durcevic@gmail.com",
+    githubUsername: "Rose432",
+    zeplinUsername: "Rose55",
+    activeFacultyYear: "2",
+  };
+
+  const handleClick = (e) => {
     active ? setActive(false) : setActive(true);
   };
 
@@ -41,15 +50,7 @@ const Profile = () => {
         <Grid isProfile>
           <Fieldset disabled={!active ? true : false}>
             <Formik
-              // enableReinitialize={true}
-              initialValues={{
-                firstName: "Antonio",
-                lastName: "Đurčević",
-                email: "antonio.durcevic@gmail.com",
-                githubUsername: "Rose432",
-                zeplinUsername: "Rose55",
-                activeFacultyYear: "2",
-              }}
+              initialValues={initialValues}
               validationSchema={Yup.object({
                 firstName: Yup.string().required("First name is required"),
                 lastName: Yup.string().required("Last name is required"),
@@ -73,12 +74,7 @@ const Profile = () => {
                   actions.setSubmitting(false);
                   actions.resetForm({
                     values: {
-                      firstName: "",
-                      lastName: "",
-                      email: "",
-                      githubUsername: "",
-                      zeplinUsername: "",
-                      activeFacultyYear: "",
+                      initialValues,
                     },
                   });
                   initialState();
@@ -159,18 +155,18 @@ const Profile = () => {
                     <ErrorMessage component={"div"} name="activeFacultyYear" />
                   </FormRow>
                   <FormRow>
-                    <div style={{ display: !active ? "none" : "block" }}>
+                    {active && (
                       <Button isOutline disabled={formik.isSubmitting}>
                         {formik.isSubmitting ? "Processing..." : "Update"}
                       </Button>
-                    </div>
+                    )}
                   </FormRow>
                 </Form>
               )}
             </Formik>
           </Fieldset>
           <PasswordWidget active={active}>
-            <div style={{ display: !active ? "none" : "block" }}>
+            {active && (
               <Formik
                 initialValues={{
                   oldPassword: "",
@@ -248,7 +244,7 @@ const Profile = () => {
                   </Form>
                 )}
               </Formik>
-            </div>
+            )}
           </PasswordWidget>
         </Grid>
       </Section>
