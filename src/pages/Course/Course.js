@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import { Main } from "../../lib/style/generalStyles";
@@ -11,6 +12,7 @@ const Course = () => {
   const { id } = useParams();
   const [courses, setCourses] = useState(null);
   const [course, setCourse] = useState(null);
+  let navigate = useNavigate();
 
   useEffect(() => {
     setCourses(coursesMock);
@@ -32,7 +34,7 @@ const Course = () => {
             buttonText={"Back"}
             isHeadingVisible={true}
             isMainTitle={true}
-            path={-1}
+            action={() => navigate(-1)}
           >
             <SingleCourse
               imgSrc={course.imgSrc}
