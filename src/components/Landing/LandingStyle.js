@@ -31,6 +31,7 @@ export const OverlayPrimary = styled.div`
   width: 27%;
   height: 100%;
   background-color: #bf3939ef;
+  /* width: 27%; */
 `;
 
 export const OverlaySecondary = styled.div`
@@ -39,17 +40,20 @@ export const OverlaySecondary = styled.div`
   width: 73%;
   height: 100%;
   background-color: #000000ad;
+  /* width: 73%; */
 `;
 
 export const Content = styled.div`
   position: absolute;
   top: 0;
+  z-index: 1;
   left: calc((100% - 1260px) / 2);
   width: 1260px;
   height: 100%;
   display: flex;
   align-items: center;
-  z-index: 1;
+  left: calc((100% - 1260px) / 2);
+  width: 1260px;
 `;
 
 export const ContentInner = styled.div``;
