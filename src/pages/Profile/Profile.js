@@ -235,7 +235,11 @@ const Profile = () => {
                     </FormRow>
 
                     <FormRow>
-                      <Button isOutline disabled={formik.isSubmitting}>
+                      <Button
+                        type="submit"
+                        isOutline
+                        disabled={formik.isSubmitting}
+                      >
                         {formik.isSubmitting
                           ? "Processing..."
                           : "Update password"}
