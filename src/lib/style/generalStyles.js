@@ -75,6 +75,12 @@ export const Button = styled.button`
     box-shadow: 0px 1px 3px ${colors.black};
   }
 
+  /* ${(onClick) => onClick}
+
+  ${(type) => type}
+  
+  ${(path) => path} */
+
   ${(props) =>
     props.isNav &&
     `

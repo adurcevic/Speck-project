@@ -44,8 +44,13 @@ const Profile = () => {
       <Section
         title={"My Profile"}
         isMainTitle={true}
-        action={handleClick}
-        buttonText={!active ? "Edit" : "Cancel"}
+        customElement={
+          <Button isHeading={true} isOutline={true} onClick={handleClick}>
+            {!active ? "Edit" : "Cancel"}
+          </Button>
+        }
+        // action={handleClick}
+        // buttonText={!active ? "Edit" : "Cancel"}
       >
         <Grid isProfile>
           <Fieldset disabled={!active ? true : false}>

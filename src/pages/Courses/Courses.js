@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-
+import SearchBar from "../../components/SearchBar/SearchBar";
 import coursesMock from "../../lib/mock/courses";
 import Header from "../../components/Header/Header";
 import Section from "../../components/Section/Section";
@@ -10,7 +10,7 @@ import { RotatingLines } from "react-loader-spinner";
 
 const Courses = () => {
   const [courses, setCourses] = useState(null);
-  const [loaded, setLoaded] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const n = coursesMock.length;
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const Courses = () => {
   }, []);
 
   useEffect(() => {
-    let timer = setTimeout(() => setLoaded(true), 1000);
+    let timer = setTimeout(() => setIsLoading(true), 1000);
     return () => {
       clearTimeout(timer);
     };
@@ -35,10 +35,14 @@ const Courses = () => {
           isHeadingVisible={true}
           isMainTitle={true}
           isSearchBarVisible={true}
-          disabled={!loaded ? true : false}
-          placeholder={"Search courses..."}
+          customElement={
+            <SearchBar
+              disabled={!isLoading ? true : false}
+              placeholder="Search courses..."
+            />
+          }
         >
-          {!loaded ? (
+          {!isLoading ? (
             <Grid>
               {[...Array(n)].map((e, i) => (
                 <SpinnerWrapper key={i}>

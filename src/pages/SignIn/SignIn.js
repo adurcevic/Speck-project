@@ -63,7 +63,12 @@ const SignIn = () => {
                 <ErrorMessage component={"div"} name="password" />
               </FormRow>
               <FormRow>
-                <Button isOutline isForm disabled={formik.isSubmitting}>
+                <Button
+                  type="submit"
+                  isOutline
+                  isForm
+                  disabled={formik.isSubmitting}
+                >
                   {formik.isSubmitting ? "Processing..." : "Sign In"}
                 </Button>
               </FormRow>

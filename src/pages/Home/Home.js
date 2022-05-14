@@ -7,7 +7,12 @@ import Landing from "../../components/Landing/Landing";
 import Section from "../../components/Section/Section";
 import CourseCard from "../../components/CourseCard/CourseCard";
 import Testimonial from "../../components/Testimonial/Testimonial";
-import { Grid, Main, SpinnerWrapper } from "../../lib/style/generalStyles";
+import {
+  Grid,
+  Main,
+  SpinnerWrapper,
+  Button,
+} from "../../lib/style/generalStyles";
 import { RotatingLines } from "react-loader-spinner";
 
 const Home = () => {
@@ -41,7 +46,16 @@ const Home = () => {
           actionText={"Learn something new"}
           buttonText={"More Courses"}
           isHeadingVisible={true}
-          action={() => navigate("/courses")}
+          customElement={
+            <Button
+              isHeading={true}
+              isOutline={true}
+              onClick={() => navigate("/courses")}
+            >
+              More Courses
+            </Button>
+          }
+          // action={() => navigate("/courses")}
         >
           {!loaded ? (
             <Grid>

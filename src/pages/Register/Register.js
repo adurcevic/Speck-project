@@ -158,7 +158,12 @@ const Register = () => {
                 <ErrorMessage component={"div"} name="activeFacultyYear" />
               </FormRow>
               <FormRow>
-                <Button isOutline isForm disabled={formik.isSubmitting}>
+                <Button
+                  type="submit"
+                  isOutline
+                  isForm
+                  disabled={formik.isSubmitting}
+                >
                   {formik.isSubmitting ? "Processing..." : "Submit"}
                 </Button>
               </FormRow>
