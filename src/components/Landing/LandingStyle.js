@@ -30,7 +30,7 @@ export const OverlayPrimary = styled.div`
   left: 0;
   width: 27%;
   height: 100%;
-  background-color: #bf3939ef;
+  background-color: ${colors.bgOverlayPrimary};
 `;
 
 export const OverlaySecondary = styled.div`
@@ -38,7 +38,7 @@ export const OverlaySecondary = styled.div`
   right: 0;
   width: 73%;
   height: 100%;
-  background-color: #000000ad;
+  background-color: ${colors.bgOverlaySecondary};
 `;
 
 export const Content = styled.div`
