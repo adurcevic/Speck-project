@@ -49,8 +49,6 @@ const Profile = () => {
             {!active ? "Edit" : "Cancel"}
           </Button>
         }
-        // action={handleClick}
-        // buttonText={!active ? "Edit" : "Cancel"}
       >
         <Grid isProfile>
           <Fieldset disabled={!active ? true : false}>
@@ -161,7 +159,11 @@ const Profile = () => {
                   </FormRow>
                   <FormRow>
                     {active && (
-                      <Button isOutline disabled={formik.isSubmitting}>
+                      <Button
+                        type="submit"
+                        isOutline
+                        disabled={formik.isSubmitting}
+                      >
                         {formik.isSubmitting ? "Processing..." : "Update"}
                       </Button>
                     )}
@@ -240,7 +242,11 @@ const Profile = () => {
                     </FormRow>
 
                     <FormRow>
-                      <Button isOutline disabled={formik.isSubmitting}>
+                      <Button
+                        type="submit"
+                        isOutline
+                        disabled={formik.isSubmitting}
+                      >
                         {formik.isSubmitting
                           ? "Processing..."
                           : "Update password"}
