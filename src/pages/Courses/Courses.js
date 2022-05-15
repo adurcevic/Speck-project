@@ -16,7 +16,6 @@ import { RotatingLines } from "react-loader-spinner";
 
 const Courses = () => {
   const [courses, setCourses] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
   const n = coursesMock.length;
@@ -25,13 +24,6 @@ const Courses = () => {
     setTimeout(() => {
       setCourses(coursesMock);
     }, 1000);
-  }, []);
-
-  useEffect(() => {
-    let timer = setTimeout(() => setIsLoading(true), 1000);
-    return () => {
-      clearTimeout(timer);
-    };
   }, []);
 
   const handleSearch = (event) => {
@@ -50,13 +42,13 @@ const Courses = () => {
 
   let course;
 
-  if (!isLoading) {
+  if (!courses) {
     course = [...Array(n)].map((e, i) => (
       <SpinnerWrapper key={i}>
         <RotatingLines width="75" strokeColor="#bf3939" strokeWidth="0.8" />
       </SpinnerWrapper>
     ));
-  } else if (isLoading && courses) {
+  } else if (courses) {
     course = courses.map(
       (course, index) =>
         index <= courses.length && (
@@ -102,7 +94,7 @@ const Courses = () => {
           isSearchBarVisible={true}
           customElement={
             <SearchBar
-              disabled={!isLoading ? true : false}
+              disabled={!courses ? true : false}
               placeholder="Search courses..."
               onChange={handleSearch}
               word={wordEntered}
