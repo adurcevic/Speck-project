@@ -21,7 +21,7 @@ import { Button } from "../../lib/style/generalStyles";
 const Profile = () => {
   const [active, setActive] = useState(false);
 
-  let initialValues = {
+  const initialValues = {
     firstName: "Antonio",
     lastName: "Đurčević",
     email: "antonio.durcevic@gmail.com",
@@ -53,7 +53,14 @@ const Profile = () => {
         <Grid isProfile>
           <Fieldset disabled={!active ? true : false}>
             <Formik
-              initialValues={initialValues}
+              initialValues={{
+                firstName: "Antonio",
+                lastName: "Đurčević",
+                email: "antonio.durcevic@gmail.com",
+                githubUsername: "Rose432",
+                zeplinUsername: "Rose55",
+                activeFacultyYear: "2",
+              }}
               validationSchema={Yup.object({
                 firstName: Yup.string().required("First name is required"),
                 lastName: Yup.string().required("Last name is required"),
@@ -76,9 +83,7 @@ const Profile = () => {
                   alert(JSON.stringify(values, null, 2));
                   actions.setSubmitting(false);
                   actions.resetForm({
-                    values: {
-                      initialValues,
-                    },
+                    initialValues,
                   });
                   initialState();
                 }, 1000);
