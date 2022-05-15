@@ -25,7 +25,7 @@ function SearchBar({
           placeholder={placeholder}
           disabled={disabled}
           onChange={onChange}
-          maxLength="40"
+          maxLength="30"
           value={searchWord}
         />
         <IconContainer>
