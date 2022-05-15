@@ -65,7 +65,6 @@ export const Content = styled.div`
 export const Text = styled.p`
   text-align: center;
   font-size: 18px;
-  /* font-size: 30px; */
   line-height: 180%;
   color: ${colors.textSecondary};
 

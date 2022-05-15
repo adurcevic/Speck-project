@@ -35,17 +35,7 @@ const Section = ({
             ) : (
               <H2 isCentered={isCentered}>{title}</H2>
             )}
-            {/* {isSearchBarVisible && (
-              <SearchBar disabled={disabled} placeholder={placeholder} />
-            )} */}
-            {
-              customElement && customElement
-              //   (
-              //   <Button onClick={action} isHeading={true} isOutline={true}>
-              //     {buttonText}
-              //   </Button>
-              // )}
-            }
+            {customElement && customElement}
           </Heading>
         )}
         {children}

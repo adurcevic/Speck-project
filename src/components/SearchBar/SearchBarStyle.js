@@ -80,6 +80,7 @@ export const SearchOutput = styled(Link)`
   display: flex;
   align-items: center;
   color: ${colors.textPrimary};
+
   &:hover {
     background-color: ${colors.bgSecondary};
   }

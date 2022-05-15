@@ -7,7 +7,6 @@ import {
   Text,
   Quotation,
 } from "./TestimonialStyle";
-
 import TestimonialImg from "../../assets/images/testimonial.jpg";
 
 const Testimonial = () => {

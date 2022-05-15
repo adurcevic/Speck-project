@@ -10,6 +10,7 @@ export const PasswordContainer = styled.div`
   @media (${breakpoints.tabletSmall}) {
     justify-self: center;
   }
+
   @media (${breakpoints.tablet}) {
     justify-self: start;
   }
@@ -31,6 +32,7 @@ export const PasswordTitle = styled.p`
   color: ${colors.black};
   margin-bottom: 35px;
 `;
+
 export const PasswordText = styled.p`
   font-size: 16px;
   color: ${colors.textPrimary};

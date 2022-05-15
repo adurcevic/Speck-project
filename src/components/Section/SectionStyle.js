@@ -72,6 +72,7 @@ export const H1 = styled.h1`
 
 export const H2 = styled.h2`
   ${TitleStyle}
+
   ${(props) =>
     props.isCentered &&
     `text-align: center;

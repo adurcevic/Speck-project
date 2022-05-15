@@ -17,7 +17,6 @@ import { RotatingLines } from "react-loader-spinner";
 
 const Home = () => {
   const [courses, setCourses] = useState(null);
-  const [loaded, setLoaded] = useState(false);
   const n = 4;
   let navigate = useNavigate();
 
@@ -25,13 +24,6 @@ const Home = () => {
     setTimeout(() => {
       setCourses(coursesMock);
     }, 1000);
-  }, []);
-
-  useEffect(() => {
-    let timer = setTimeout(() => setLoaded(true), 1000);
-    return () => {
-      clearTimeout(timer);
-    };
   }, []);
 
   return (
@@ -57,7 +49,7 @@ const Home = () => {
           }
           // action={() => navigate("/courses")}
         >
-          {!loaded ? (
+          {!courses ? (
             <Grid>
               {[...Array(n)].map((e, i) => (
                 <SpinnerWrapper key={i}>
@@ -70,23 +62,21 @@ const Home = () => {
               ))}
             </Grid>
           ) : (
-            courses && (
-              <Grid>
-                {courses.map(
-                  (course, index) =>
-                    index <= 3 && (
-                      <CourseCard
-                        key={course.id}
-                        courseId={course.id}
-                        imgSrc={course.imgSrc}
-                        imgAlt={course.imgAlt}
-                        title={course.title}
-                        subtitle={course.subtitle}
-                      />
-                    )
-                )}
-              </Grid>
-            )
+            <Grid>
+              {courses.map(
+                (course, index) =>
+                  index <= 3 && (
+                    <CourseCard
+                      key={course.id}
+                      courseId={course.id}
+                      imgSrc={course.imgSrc}
+                      imgAlt={course.imgAlt}
+                      title={course.title}
+                      subtitle={course.subtitle}
+                    />
+                  )
+              )}
+            </Grid>
           )}
         </Section>
         <Section isHeadingVisible={false} isTestimonial={true}>
