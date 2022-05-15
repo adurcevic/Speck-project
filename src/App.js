@@ -7,6 +7,7 @@ import Course from "./pages/Course/Course";
 import Register from "./pages/Register/Register";
 import SignIn from "./pages/SignIn/SignIn";
 import Profile from "./pages/Profile/Profile";
+import TestSearchBar from "./pages/TestSearchBar/TestSearchBar";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/courses" element={<Courses />} />
+        <Route path="/test" element={<TestSearchBar />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/course/:id" element={<Course />} />
         <Route path="/register" element={<Register />} />
