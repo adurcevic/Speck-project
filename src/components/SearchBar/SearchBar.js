@@ -29,7 +29,11 @@ function SearchBar({
           value={word}
         />
         <IconContainer>
-          {{ showIcon } === 0 ? <Icon /> : <ClearIcon onClick={clearInput} />}
+          {{ showIcon } && { showIcon } > 0 ? (
+            <ClearIcon onClick={clearInput} />
+          ) : (
+            <Icon />
+          )}
         </IconContainer>
       </SearchInputs>
     </Search>

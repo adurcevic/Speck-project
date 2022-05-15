@@ -204,3 +204,18 @@ export const SpinnerWrapper = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
+// NO COURSES FOUND
+
+export const NoCoursesWrapper = styled.div`
+  position: absolute;
+  left: 50%;
+  top: 150%;
+  transform: translate(-50%, -50%);
+`;
+
+export const NoCourses = styled.p`
+  color: ${colors.textPrimary};
+  font-size: 18px;
+  font-weight: 700;
+`;

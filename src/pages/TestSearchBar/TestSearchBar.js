@@ -2,7 +2,12 @@ import React from "react";
 import { useState } from "react";
 import Header from "../../components/Header/Header";
 import Section from "../../components/Section/Section";
-import { Grid } from "../../lib/style/generalStyles";
+import {
+  Grid,
+  NoCourses,
+  NoCoursesWrapper,
+  ResultNotFound,
+} from "../../lib/style/generalStyles";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import coursesMock from "../../lib/mock/courses";
 import CourseCard from "../../components/CourseCard/CourseCard";
@@ -38,7 +43,11 @@ const TestSearchBar = () => {
       />
     ));
   } else if (wordEntered.length > 0 && !filteredData.includes({})) {
-    course = <div>No courses found</div>;
+    course = (
+      <NoCoursesWrapper>
+        <NoCourses>No results for {wordEntered}</NoCourses>
+      </NoCoursesWrapper>
+    );
   } else {
     course = coursesMock.map(
       (course, index) =>
@@ -56,7 +65,7 @@ const TestSearchBar = () => {
   }
 
   console.log(filteredData);
-  console.log(wordEntered);
+  console.log(wordEntered.length);
 
   return (
     <>
