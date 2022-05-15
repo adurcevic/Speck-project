@@ -89,15 +89,14 @@ const Courses = () => {
           title={"All lectures"}
           isHeadingVisible={true}
           isMainTitle={true}
-          isSearchBarVisible={true}
           customElement={
             <SearchBar
               disabled={!courses ? true : false}
               placeholder="Search courses..."
               onChange={handleSearch}
-              word={wordEntered}
+              searchWord={wordEntered}
               clearInput={clearInput}
-              showIcon={wordEntered.length}
+              searchStringLength={wordEntered.length}
             />
           }
         >

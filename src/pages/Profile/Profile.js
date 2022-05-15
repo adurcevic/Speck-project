@@ -177,7 +177,7 @@ const Profile = () => {
               )}
             </Formik>
           </Fieldset>
-          <PasswordWidget active={active}>
+          <PasswordWidget isActive={active}>
             {active && (
               <Formik
                 initialValues={{

@@ -218,4 +218,5 @@ export const NoCourses = styled.p`
   color: ${colors.textPrimary};
   font-size: 18px;
   font-weight: 700;
+  text-align: center;
 `;
