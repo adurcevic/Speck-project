@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { breakpoints, colors } from "./theme";
 
+// GRID STYLE
+
 export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(1, 1fr);
@@ -21,10 +23,14 @@ export const Grid = styled.div`
   }
 `;
 
+// MAIN STYLE
+
 export const Main = styled.main`
   width: 100%;
   overflow: hidden;
 `;
+
+// BUTTONS STYLE
 
 export const Button = styled.button`
   border: none;
@@ -40,7 +46,6 @@ export const Button = styled.button`
   display: inline-flex;
   text-transform: uppercase;
   transition: 0.3s;
-
   &:hover {
     box-shadow: 0px 1px 3px ${colors.black};
   }
@@ -71,9 +76,26 @@ export const Button = styled.button`
   ${(props) => props.isHeading && `width: 200px;`}
 `;
 
+// SPINNER WRAPPER
+
 export const SpinnerWrapper = styled.div`
   display: flex;
   width: 100%;
   justify-content: center;
   align-items: center;
+`;
+
+// NO COURSES FOUND
+
+export const NoCoursesWrapper = styled.div`
+  position: absolute;
+  left: 50%;
+  top: 150%;
+  transform: translate(-50%, -50%);
+`;
+
+export const NoCourses = styled.p`
+  color: ${colors.textPrimary};
+  font-size: 18px;
+  font-weight: 700;
 `;

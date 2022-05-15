@@ -22,12 +22,12 @@ export const SearchInputs = styled.div`
 export const SearchBar = styled.input`
   width: 100%;
   padding-left: 5px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 3px;
   border: 1px solid ${colors.textSecondary};
   border-radius: 6px;
   line-height: 40px;
   outline: none;
   font-size: 14px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 3px;
 
   &:focus {
     border: ${colors.textPrimary};
@@ -69,7 +69,6 @@ export const Courses = styled.div`
   box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 3px;
   overflow: hidden;
   overflow-y: auto;
-
   &::-webkit-scrollbar {
     display: none;
   }
@@ -81,7 +80,6 @@ export const SearchOutput = styled(Link)`
   display: flex;
   align-items: center;
   color: ${colors.textPrimary};
-
   &:hover {
     background-color: ${colors.bgSecondary};
   }

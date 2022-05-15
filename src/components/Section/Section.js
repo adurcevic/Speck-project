@@ -1,7 +1,4 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import { Button } from "../../lib/style/generalStyles";
-import SearchBar from "../SearchBar/SearchBar";
 import {
   Section as SectionWrapper,
   SectionInner,
@@ -15,38 +12,30 @@ const Section = ({
   modifiers,
   actionText,
   title,
-  path,
-  buttonText,
+  // action,
+  // buttonText,
   isHeadingVisible = true,
   children,
   isTestimonial,
   isMainTitle = false,
-  isSearchBarVisible = false,
-  disabled,
-  placeholder,
+  isCentered = false,
+  // isSearchBarVisible = false,
+  // disabled,
+  // placeholder,
+  customElement,
 }) => {
-  let navigate = useNavigate();
-
   return (
     <SectionWrapper isTestimonial={isTestimonial}>
       <SectionInner>
         {actionText && <ActionText>{actionText}</ActionText>}
         {isHeadingVisible && (
           <Heading>
-            {title && { isMainTitle } ? <H1>{title}</H1> : <H2>{title}</H2>}
-            {isSearchBarVisible && (
-              <SearchBar disabled={disabled} placeholder={placeholder} />
+            {title && { isMainTitle } ? (
+              <H1 isCentered={isCentered}>{title}</H1>
+            ) : (
+              <H2 isCentered={isCentered}>{title}</H2>
             )}
-            {buttonText && (
-              <Button
-                onClick={() => navigate(path)}
-                isHeading={true}
-                isOutline={true}
-                // modifiers={["heading", "outline"]}
-              >
-                {buttonText}
-              </Button>
-            )}
+            {customElement && customElement}
           </Heading>
         )}
         {children}
