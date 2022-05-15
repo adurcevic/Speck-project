@@ -8,7 +8,7 @@ export const Search = styled.div``;
 
 export const SearchInputs = styled.div`
   position: relative;
-  width: 290px;
+  max-width: 290px;
 
   @media (${breakpoints.tablet}) {
     width: 320px;

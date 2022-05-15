@@ -51,7 +51,7 @@ export const Grid = styled.div`
 
 export const Main = styled.main`
   width: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
 `;
 
 // BUTTONS STYLE
