@@ -42,27 +42,25 @@ const Courses = () => {
 
   let course;
 
-  if (!courses) {
-    course = [...Array(n)].map((e, i) => (
-      <SpinnerWrapper key={i}>
-        <RotatingLines width="75" strokeColor="#bf3939" strokeWidth="0.8" />
-      </SpinnerWrapper>
-    ));
-  } else if (courses) {
-    course = courses.map(
-      (course, index) =>
-        index <= courses.length && (
-          <CourseCard
-            key={course.id}
-            courseId={course.id}
-            imgSrc={course.imgSrc}
-            imgAlt={course.imgAlt}
-            title={course.title}
-            subtitle={course.subtitle}
-          />
-        )
-    );
-  }
+  course = !courses
+    ? [...Array(n)].map((e, i) => (
+        <SpinnerWrapper key={i}>
+          <RotatingLines width="75" strokeColor="#bf3939" strokeWidth="0.8" />
+        </SpinnerWrapper>
+      ))
+    : courses.map(
+        (course, index) =>
+          index <= courses.length && (
+            <CourseCard
+              key={course.id}
+              courseId={course.id}
+              imgSrc={course.imgSrc}
+              imgAlt={course.imgAlt}
+              title={course.title}
+              subtitle={course.subtitle}
+            />
+          )
+      );
 
   if (filteredData.length !== 0) {
     course = filteredData.map((course, index) => (
