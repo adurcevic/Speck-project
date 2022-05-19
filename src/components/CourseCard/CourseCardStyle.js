@@ -3,6 +3,14 @@ import { Link } from "react-router-dom";
 import { colors, breakpoints } from "../../lib/style/theme";
 
 export const Course = styled(Link)`
+  @media (${breakpoints.destkop}) {
+    flex-basis: 288px;
+  }
+
+  @media (${breakpoints.destkopLarge}) {
+    flex-basis: 279px;
+  }
+
   &:hover {
     figure {
       box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);

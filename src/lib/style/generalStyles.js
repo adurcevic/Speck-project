@@ -51,7 +51,7 @@ export const Grid = styled.div`
 
 export const Main = styled.main`
   width: 100%;
-  /* overflow: hidden; */
+  overflow: hidden;
 `;
 
 // BUTTONS STYLE
@@ -74,12 +74,6 @@ export const Button = styled.button`
   &:hover {
     box-shadow: 0px 1px 3px ${colors.black};
   }
-
-  /* ${(onClick) => onClick}
-
-  ${(type) => type}
-  
-  ${(path) => path} */
 
   ${(props) =>
     props.isNav &&
@@ -207,16 +201,33 @@ export const SpinnerWrapper = styled.div`
 
 // NO COURSES FOUND
 
-export const NoCoursesWrapper = styled.div`
-  position: absolute;
-  left: 50%;
-  top: 150%;
-  transform: translate(-50%, -50%);
-`;
-
 export const NoCourses = styled.p`
   color: ${colors.textPrimary};
   font-size: 18px;
   font-weight: 700;
-  text-align: center;
+
+  @media (${breakpoints.destkop}) {
+    text-align: center;
+  }
+`;
+
+// SEARCH results
+
+export const SearchWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  row-gap: 48px;
+
+  @media (${breakpoints.tabletSmall}) {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 32px;
+  }
+
+  @media (${breakpoints.destkop}) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 48px;
+  }
 `;

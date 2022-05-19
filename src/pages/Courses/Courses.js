@@ -9,8 +9,8 @@ import {
   Grid,
   Main,
   SpinnerWrapper,
+  SearchWrapper,
   NoCourses,
-  NoCoursesWrapper,
 } from "../../lib/style/generalStyles";
 import { RotatingLines } from "react-loader-spinner";
 
@@ -40,15 +40,17 @@ const Courses = () => {
     setWordEntered("");
   };
 
-  let course;
-
-  course = !courses
-    ? [...Array(n)].map((e, i) => (
+  let course = !courses ? (
+    <Grid>
+      {[...Array(n)].map((e, i) => (
         <SpinnerWrapper key={i}>
           <RotatingLines width="75" strokeColor="#bf3939" strokeWidth="0.8" />
         </SpinnerWrapper>
-      ))
-    : courses.map(
+      ))}
+    </Grid>
+  ) : (
+    <Grid>
+      {courses.map(
         (course, index) =>
           index <= courses.length && (
             <CourseCard
@@ -60,26 +62,34 @@ const Courses = () => {
               subtitle={course.subtitle}
             />
           )
-      );
+      )}
+    </Grid>
+  );
 
   if (filteredData.length !== 0) {
-    course = filteredData.map((course, index) => (
-      <CourseCard
-        key={course.id}
-        courseId={course.id}
-        imgSrc={course.imgSrc}
-        imgAlt={course.imgAlt}
-        title={course.title}
-        subtitle={course.subtitle}
-      />
-    ));
+    course = (
+      <SearchWrapper>
+        {filteredData.map((course, index) => (
+          <CourseCard
+            key={course.id}
+            courseId={course.id}
+            imgSrc={course.imgSrc}
+            imgAlt={course.imgAlt}
+            title={course.title}
+            subtitle={course.subtitle}
+          />
+        ))}
+      </SearchWrapper>
+    );
   } else if (wordEntered.length > 0 && !filteredData.includes({})) {
     course = (
-      <NoCoursesWrapper>
+      <SearchWrapper>
         <NoCourses>No results for "{wordEntered}"</NoCourses>
-      </NoCoursesWrapper>
+      </SearchWrapper>
     );
   }
+
+  console.log(wordEntered);
 
   return (
     <>
@@ -100,7 +110,7 @@ const Courses = () => {
             />
           }
         >
-          <Grid>{course}</Grid>
+          {course}
         </Section>
       </Main>
     </>

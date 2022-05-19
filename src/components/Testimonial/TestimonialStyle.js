@@ -4,18 +4,18 @@ import { colors, breakpoints } from "../../lib/style/theme";
 export const Testimonial = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
 
   @media (${breakpoints.tabletMedium}) {
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
   }
 `;
 
 export const Figure = styled.figure`
   margin-bottom: 16px;
-  width: 150px;
-  height: 150px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
   overflow: hidden;
   flex-shrink: 0;
@@ -63,7 +63,7 @@ export const Content = styled.div`
 `;
 
 export const Text = styled.p`
-  text-align: center;
+  /* text-align: center; */
   font-size: 18px;
   line-height: 180%;
   color: ${colors.textSecondary};
