@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom"; //
-import { colors } from "../../lib/style/theme";
+import { colors, breakpoints } from "../../lib/style/theme";
 
 export const StyledMenu = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: #bf3939e1;
+  background: ${colors.bgMenuPrimary};
   height: 100vh;
   width: 100%;
   text-align: center;
@@ -21,10 +21,21 @@ export const StyledMenu = styled.nav`
 `;
 
 export const MenuLinks = styled(NavLink)`
-  font-size: 24px;
+  font-size: 20px;
   text-transform: uppercase;
   padding: 20px 0;
-  font-weight: bold;
-  letter-spacing: 5px;
+  font-weight: 500;
+  letter-spacing: 2px;
   color: ${colors.secondary};
+  transition: all 0.3s ease-in-out;
+  @media (${breakpoints.tabletSmall}) {
+    font-size: 24px;
+  }
+  @media (${breakpoints.tablet}) {
+    font-size: 28px;
+  }
+  &:hover {
+    background: ${colors.bgMenuHover};
+    font-weight: 700;
+  }
 `;

@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+
 import {
   Search,
   SearchInputs,
@@ -7,31 +7,16 @@ import {
   IconContainer,
   Icon,
   ClearIcon,
-  Courses,
-  SearchOutput,
-  Output,
 } from "./SearchBarStyle";
-import coursesMock from "../../lib/mock/courses";
 
-function SearchBar({ placeholder, disabled }) {
-  const [filteredData, setFilteredData] = useState([]);
-  const [wordEntered, setWordEntered] = useState("");
-
-  const handleSearch = (event) => {
-    const searchWord = event.target.value;
-    setWordEntered(searchWord);
-    const newFilter = coursesMock.filter((value) => {
-      return value.title.toLowerCase().includes(searchWord.toLowerCase());
-    });
-
-    searchWord === "" ? setFilteredData([]) : setFilteredData(newFilter);
-  };
-
-  const clearInput = () => {
-    setFilteredData([]);
-    setWordEntered("");
-  };
-
+function SearchBar({
+  placeholder,
+  disabled,
+  onChange,
+  searchWord,
+  clearInput,
+  searchStringLength,
+}) {
   return (
     <Search>
       <SearchInputs>
@@ -39,30 +24,18 @@ function SearchBar({ placeholder, disabled }) {
           type="text"
           placeholder={placeholder}
           disabled={disabled}
-          onChange={handleSearch}
-          maxLength={35}
-          value={wordEntered}
+          onChange={onChange}
+          maxLength="30"
+          value={searchWord}
         />
         <IconContainer>
-          {filteredData.length === 0 ? (
-            <Icon />
-          ) : (
+          {searchStringLength > 0 ? (
             <ClearIcon onClick={clearInput} />
+          ) : (
+            <Icon />
           )}
         </IconContainer>
       </SearchInputs>
-
-      {filteredData.length != 0 && (
-        <Courses>
-          {filteredData.map((value, key) => {
-            return (
-              <SearchOutput to={`/course/${value.id}`}>
-                <Output>{value.title}</Output>
-              </SearchOutput>
-            );
-          })}
-        </Courses>
-      )}
     </Search>
   );
 }

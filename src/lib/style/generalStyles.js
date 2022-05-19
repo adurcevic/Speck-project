@@ -13,11 +13,9 @@ export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   row-gap: 48px;
-
   @media (${breakpoints.tabletSmall}) {
     grid-template-columns: repeat(2, 1fr);
     column-gap: 32px;
-
     ${(props) =>
       props.isProfile &&
       `
@@ -26,7 +24,6 @@ export const Grid = styled.div`
   
 `}
   }
-
   @media (${breakpoints.tablet}) {
     ${(props) =>
       props.isProfile &&
@@ -36,12 +33,10 @@ export const Grid = styled.div`
     justify-items: start;
   `}
   }
-
   @media (${breakpoints.destkop}) {
     grid-template-columns: repeat(3, 1fr);
     column-gap: 48px;
   }
-
   @media (${breakpoints.destkopLarge}) {
     grid-template-columns: repeat(4, 1fr);
   }
@@ -70,11 +65,9 @@ export const Button = styled.button`
   display: inline-flex;
   text-transform: uppercase;
   transition: 0.3s;
-
   &:hover {
     box-shadow: 0px 1px 3px ${colors.black};
   }
-
   ${(props) =>
     props.isNav &&
     `
@@ -84,20 +77,17 @@ export const Button = styled.button`
       transition: all 0.3s ease-in-out;
       filter: drop-shadow(0 3px 3px ${colors.black});
       }`}
-
   ${(props) =>
     props.isSecondary &&
     `
     background: ${colors.primary};
     color: ${colors.secondary};
   `}
-
   ${(props) =>
     props.isOutline &&
     `
     border: 1px solid ${colors.primary};
   `}
-
   ${(props) => props.isHeading && `width: 200px;`}
   
   ${(props) =>
@@ -113,21 +103,18 @@ export const Button = styled.button`
 export const Form = styled(FormFormik)`
   @media (${breakpoints.tabletSmall}) {
     width: 400px;
-
     ${(props) =>
       props.isCentered !== false &&
       `
             margin: 0 auto;
         `}
   }
-
   ${(props) =>
     props.isProfile &&
     `
       @media (${breakpoints.tablet}) {
     width: 300px;
       }
-
     @media (${breakpoints.destkop}) {
     width: 400px;
   
@@ -136,7 +123,6 @@ export const Form = styled(FormFormik)`
 
 export const FormRow = styled.div`
   margin-bottom: 32px;
-
   &:last-child {
     margin-bottom: 0;
   }
@@ -152,11 +138,9 @@ const FieldStyle = css`
   outline: none;
   font-size: 14px;
   font-family: ${fonts.primary};
-
   &:focus {
     border-color: ${colors.textPrimary};
   }
-
   @media (${breakpoints.desktop}) {
     font-size: 16px;
   }
@@ -198,6 +182,38 @@ export const SpinnerWrapper = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
+// NO COURSES FOUND
+
+export const NoCourses = styled.p`
+  color: ${colors.textPrimary};
+  font-size: 18px;
+  font-weight: 700;
+  @media (${breakpoints.destkop}) {
+    text-align: center;
+  }
+`;
+
+// SEARCH results
+
+export const SearchWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  row-gap: 48px;
+  @media (${breakpoints.tabletSmall}) {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 32px;
+  }
+  @media (${breakpoints.destkop}) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 48px;
+  }
+`;
+
+// FORM MESSAGE
 
 export const FormSucessMessage = styled.p`
   padding: 12px;

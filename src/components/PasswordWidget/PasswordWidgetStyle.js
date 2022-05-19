@@ -6,7 +6,6 @@ export const PasswordContainer = styled.div`
   border-radius: 5px;
   background-color: ${colors.bgTertiary};
   align-self: start;
-
   @media (${breakpoints.tabletSmall}) {
     justify-self: center;
   }
@@ -19,7 +18,6 @@ export const PasswordWrapper = styled.div`
   @media (${breakpoints.tabletSmall}) {
     width: 350px;
   }
-
   @media (${breakpoints.tablet}) {
     width: 300px;
   }
@@ -31,6 +29,7 @@ export const PasswordTitle = styled.p`
   color: ${colors.black};
   margin-bottom: 35px;
 `;
+
 export const PasswordText = styled.p`
   font-size: 16px;
   color: ${colors.textPrimary};

@@ -20,15 +20,14 @@ import { Button } from "../../lib/style/generalStyles";
 
 const Profile = () => {
   const [active, setActive] = useState(false);
-
-  let initialValues = {
+  const [formValues, setFormValues] = useState({
     firstName: "Antonio",
     lastName: "Đurčević",
     email: "antonio.durcevic@gmail.com",
     githubUsername: "Rose432",
     zeplinUsername: "Rose55",
     activeFacultyYear: "2",
-  };
+  });
 
   const handleClick = (e) => {
     active ? setActive(false) : setActive(true);
@@ -44,45 +43,51 @@ const Profile = () => {
       <Section
         title={"My Profile"}
         isMainTitle={true}
-        action={handleClick}
-        buttonText={!active ? "Edit" : "Cancel"}
+        customElement={
+          <Button isHeading={true} isOutline={true} onClick={handleClick}>
+            {!active ? "Edit" : "Cancel"}
+          </Button>
+        }
       >
         <Grid isProfile>
-          <Fieldset disabled={!active ? true : false}>
-            <Formik
-              initialValues={initialValues}
-              validationSchema={Yup.object({
-                firstName: Yup.string().required("First name is required"),
-                lastName: Yup.string().required("Last name is required"),
-                email: Yup.string()
-                  .email("Invalid email address")
-                  .required("Email is required"),
+          <Formik
+            initialValues={formValues}
+            validationSchema={Yup.object({
+              firstName: Yup.string().required("First name is required"),
+              lastName: Yup.string().required("Last name is required"),
+              email: Yup.string()
+                .email("Invalid email address")
+                .required("Email is required"),
 
-                githubUsername: Yup.string().required(
-                  "Github username is required"
-                ),
-                zeplinUsername: Yup.string().required(
-                  "Zeplin username is required"
-                ),
-                activeFacultyYear: Yup.string().required(
-                  "Active faculty year is required"
-                ),
-              })}
-              onSubmit={(values, actions) => {
-                setTimeout(() => {
-                  alert(JSON.stringify(values, null, 2));
-                  actions.setSubmitting(false);
-                  actions.resetForm({
-                    values: {
-                      initialValues,
-                    },
-                  });
-                  initialState();
-                }, 1000);
-              }}
-            >
-              {(formik) => (
-                <Form isProfile>
+              githubUsername: Yup.string().required(
+                "Github username is required"
+              ),
+              zeplinUsername: Yup.string().required(
+                "Zeplin username is required"
+              ),
+              activeFacultyYear: Yup.string().required(
+                "Active faculty year is required"
+              ),
+            })}
+            onSubmit={(values, actions) => {
+              setTimeout(() => {
+                alert(JSON.stringify(values, null, 2));
+                actions.setSubmitting(false);
+                setFormValues({
+                  firstName: values.firstName,
+                  lastName: values.lastName,
+                  email: values.email,
+                  githubUsername: values.githubUsername,
+                  zeplinUsername: values.zeplinUsername,
+                  activeFacultyYear: values.activeFacultyYear,
+                });
+                initialState();
+              }, 1000);
+            }}
+          >
+            {(formik) => (
+              <Fieldset isProfile disabled={!active ? true : false}>
+                <Form>
                   <FormRow>
                     <Label htmlFor="firstName">First name:</Label>
                     <Field
@@ -156,16 +161,21 @@ const Profile = () => {
                   </FormRow>
                   <FormRow>
                     {active && (
-                      <Button isOutline disabled={formik.isSubmitting}>
+                      <Button
+                        type="submit"
+                        isOutline
+                        disabled={formik.isSubmitting}
+                      >
                         {formik.isSubmitting ? "Processing..." : "Update"}
                       </Button>
                     )}
                   </FormRow>
                 </Form>
-              )}
-            </Formik>
-          </Fieldset>
-          <PasswordWidget active={active}>
+              </Fieldset>
+            )}
+          </Formik>
+
+          <PasswordWidget isActive={active}>
             {active && (
               <Formik
                 initialValues={{
@@ -202,50 +212,52 @@ const Profile = () => {
                 }}
               >
                 {(formik) => (
-                  <Form isProfile>
-                    <FormRow>
-                      <Field
-                        type="password"
-                        name="oldPassword"
-                        placeholder="Old password..."
-                        disabled={formik.isSubmitting}
-                      />
-                      <ErrorMessage component={"div"} name="oldPassword" />
-                    </FormRow>
-                    <FormRow>
-                      <Field
-                        type="password"
-                        name="newPassword"
-                        placeholder="New password..."
-                        disabled={formik.isSubmitting}
-                      />
-                      <ErrorMessage component={"div"} name="newPassword" />
-                    </FormRow>
-                    <FormRow>
-                      <Field
-                        type="password"
-                        name="newPasswordConfirmed"
-                        placeholder="New password confirmed..."
-                        disabled={formik.isSubmitting}
-                      />
-                      <ErrorMessage
-                        component={"div"}
-                        name="newPasswordConfirmed"
-                      />
-                    </FormRow>
+                  <Fieldset isProfile>
+                    <Form>
+                      <FormRow>
+                        <Field
+                          type="password"
+                          name="oldPassword"
+                          placeholder="Old password..."
+                          disabled={formik.isSubmitting}
+                        />
+                        <ErrorMessage component={"div"} name="oldPassword" />
+                      </FormRow>
+                      <FormRow>
+                        <Field
+                          type="password"
+                          name="newPassword"
+                          placeholder="New password..."
+                          disabled={formik.isSubmitting}
+                        />
+                        <ErrorMessage component={"div"} name="newPassword" />
+                      </FormRow>
+                      <FormRow>
+                        <Field
+                          type="password"
+                          name="newPasswordConfirmed"
+                          placeholder="New password confirmed..."
+                          disabled={formik.isSubmitting}
+                        />
+                        <ErrorMessage
+                          component={"div"}
+                          name="newPasswordConfirmed"
+                        />
+                      </FormRow>
 
-                    <FormRow>
-                      <Button
-                        type="submit"
-                        isOutline
-                        disabled={formik.isSubmitting}
-                      >
-                        {formik.isSubmitting
-                          ? "Processing..."
-                          : "Update password"}
-                      </Button>
-                    </FormRow>
-                  </Form>
+                      <FormRow>
+                        <Button
+                          type="submit"
+                          isOutline
+                          disabled={formik.isSubmitting}
+                        >
+                          {formik.isSubmitting
+                            ? "Processing..."
+                            : "Update password"}
+                        </Button>
+                      </FormRow>
+                    </Form>
+                  </Fieldset>
                 )}
               </Formik>
             )}

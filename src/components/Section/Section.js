@@ -1,6 +1,4 @@
 import React from "react";
-import { Button } from "../../lib/style/generalStyles";
-import SearchBar from "../SearchBar/SearchBar";
 import {
   Section as SectionWrapper,
   SectionInner,
@@ -14,16 +12,17 @@ const Section = ({
   modifiers,
   actionText,
   title,
-  action,
-  buttonText,
+  // action,
+  // buttonText,
   isHeadingVisible = true,
   children,
   isTestimonial,
   isMainTitle = false,
   isCentered = false,
-  isSearchBarVisible = false,
-  disabled,
-  placeholder,
+  // isSearchBarVisible = false,
+  // disabled,
+  // placeholder,
+  customElement,
 }) => {
   return (
     <SectionWrapper isTestimonial={isTestimonial}>
@@ -36,14 +35,7 @@ const Section = ({
             ) : (
               <H2 isCentered={isCentered}>{title}</H2>
             )}
-            {isSearchBarVisible && (
-              <SearchBar disabled={disabled} placeholder={placeholder} />
-            )}
-            {buttonText && (
-              <Button onClick={action} isHeading={true} isOutline={true}>
-                {buttonText}
-              </Button>
-            )}
+            {customElement && customElement}
           </Heading>
         )}
         {children}

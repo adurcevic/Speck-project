@@ -7,12 +7,16 @@ import Landing from "../../components/Landing/Landing";
 import Section from "../../components/Section/Section";
 import CourseCard from "../../components/CourseCard/CourseCard";
 import Testimonial from "../../components/Testimonial/Testimonial";
-import { Grid, Main, SpinnerWrapper } from "../../lib/style/generalStyles";
+import {
+  Grid,
+  Main,
+  SpinnerWrapper,
+  Button,
+} from "../../lib/style/generalStyles";
 import { RotatingLines } from "react-loader-spinner";
 
 const Home = () => {
   const [courses, setCourses] = useState(null);
-  const [loaded, setLoaded] = useState(false);
   const n = 4;
   let navigate = useNavigate();
 
@@ -20,13 +24,6 @@ const Home = () => {
     setTimeout(() => {
       setCourses(coursesMock);
     }, 1000);
-  }, []);
-
-  useEffect(() => {
-    let timer = setTimeout(() => setLoaded(true), 1000);
-    return () => {
-      clearTimeout(timer);
-    };
   }, []);
 
   return (
@@ -41,9 +38,17 @@ const Home = () => {
           actionText={"Learn something new"}
           buttonText={"More Courses"}
           isHeadingVisible={true}
-          action={() => navigate("/courses")}
+          customElement={
+            <Button
+              isHeading={true}
+              isOutline={true}
+              onClick={() => navigate("/courses")}
+            >
+              More Courses
+            </Button>
+          }
         >
-          {!loaded ? (
+          {!courses ? (
             <Grid>
               {[...Array(n)].map((e, i) => (
                 <SpinnerWrapper key={i}>
@@ -56,23 +61,21 @@ const Home = () => {
               ))}
             </Grid>
           ) : (
-            courses && (
-              <Grid>
-                {courses.map(
-                  (course, index) =>
-                    index <= 3 && (
-                      <CourseCard
-                        key={course.id}
-                        courseId={course.id}
-                        imgSrc={course.imgSrc}
-                        imgAlt={course.imgAlt}
-                        title={course.title}
-                        subtitle={course.subtitle}
-                      />
-                    )
-                )}
-              </Grid>
-            )
+            <Grid>
+              {courses.map(
+                (course, index) =>
+                  index <= 3 && (
+                    <CourseCard
+                      key={course.id}
+                      courseId={course.id}
+                      imgSrc={course.imgSrc}
+                      imgAlt={course.imgAlt}
+                      title={course.title}
+                      subtitle={course.subtitle}
+                    />
+                  )
+              )}
+            </Grid>
           )}
         </Section>
         <Section isHeadingVisible={false} isTestimonial={true}>

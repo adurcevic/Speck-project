@@ -10,6 +10,10 @@ export const colors = {
   bgPrimary: "#ffffff",
   bgSecondary: "#f6fafb",
   bgTertiary: "#e9ecef",
+  bgOverlayPrimary: "#bf3939ef",
+  bgOverlaySecondary: "#000000ad",
+  bgMenuPrimary: "#bf3939e1",
+  bgMenuHover: "#d17171",
   textPrimary: "#333333",
   textSecondary: "#696969",
 };

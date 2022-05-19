@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import Header from "../../components/Header/Header";
-import { Main } from "../../lib/style/generalStyles";
+import { Main, Button } from "../../lib/style/generalStyles";
 import Section from "../../components/Section/Section";
 import SingleCourse from "../../components/SingleCourse/SingleCourse";
 import coursesMock from "../../lib/mock/courses";
@@ -31,10 +31,17 @@ const Course = () => {
           <Section
             title={course.title}
             actionText={course.subtitle}
-            buttonText={"Back"}
             isHeadingVisible={true}
             isMainTitle={true}
-            action={() => navigate(-1)}
+            customElement={
+              <Button
+                isHeading={true}
+                isOutline={true}
+                onClick={() => navigate(-1)}
+              >
+                Back
+              </Button>
+            }
           >
             <SingleCourse
               imgSrc={course.imgSrc}
