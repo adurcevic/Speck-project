@@ -7,17 +7,30 @@ export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   row-gap: 48px;
-
   @media (${breakpoints.tabletSmall}) {
     grid-template-columns: repeat(2, 1fr);
     column-gap: 32px;
+    ${(props) =>
+      props.isProfile &&
+      `
+      grid-template-columns: repeat(1, 1fr);
+      row-gap: 48px;
+  
+`}
   }
-
+  @media (${breakpoints.tablet}) {
+    ${(props) =>
+      props.isProfile &&
+      `
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 0px;
+    justify-items: start;
+  `}
+  }
   @media (${breakpoints.destkop}) {
     grid-template-columns: repeat(3, 1fr);
     column-gap: 48px;
   }
-
   @media (${breakpoints.destkopLarge}) {
     grid-template-columns: repeat(4, 1fr);
   }
@@ -49,7 +62,6 @@ export const Button = styled.button`
   &:hover {
     box-shadow: 0px 1px 3px ${colors.black};
   }
-
   ${(props) =>
     props.isNav &&
     `
@@ -59,21 +71,25 @@ export const Button = styled.button`
       transition: all 0.3s ease-in-out;
       filter: drop-shadow(0 3px 3px ${colors.black});
       }`}
-
   ${(props) =>
     props.isSecondary &&
     `
     background: ${colors.primary};
     color: ${colors.secondary};
   `}
-
   ${(props) =>
     props.isOutline &&
     `
     border: 1px solid ${colors.primary};
   `}
-
   ${(props) => props.isHeading && `width: 200px;`}
+  
+  ${(props) =>
+    props.isForm &&
+    `
+  display: block;
+  margin: 0 auto;
+  width: 220px;`}
 `;
 
 // SPINNER WRAPPER
@@ -87,15 +103,30 @@ export const SpinnerWrapper = styled.div`
 
 // NO COURSES FOUND
 
-export const NoCoursesWrapper = styled.div`
-  position: absolute;
-  left: 50%;
-  top: 150%;
-  transform: translate(-50%, -50%);
-`;
-
 export const NoCourses = styled.p`
   color: ${colors.textPrimary};
   font-size: 18px;
   font-weight: 700;
+  @media (${breakpoints.destkop}) {
+    text-align: center;
+  }
+`;
+
+// SEARCH results
+
+export const SearchWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  row-gap: 48px;
+  @media (${breakpoints.tabletSmall}) {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 32px;
+  }
+  @media (${breakpoints.destkop}) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 48px;
+  }
 `;

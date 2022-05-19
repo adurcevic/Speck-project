@@ -47,6 +47,7 @@ const Home = () => {
               More Courses
             </Button>
           }
+          // action={() => navigate("/courses")}
         >
           {!courses ? (
             <Grid>

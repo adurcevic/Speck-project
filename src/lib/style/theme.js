@@ -9,6 +9,7 @@ export const colors = {
   black: "#000000",
   bgPrimary: "#ffffff",
   bgSecondary: "#f6fafb",
+  bgTertiary: "#e9ecef",
   bgOverlayPrimary: "#bf3939ef",
   bgOverlaySecondary: "#000000ad",
   bgMenuPrimary: "#bf3939e1",

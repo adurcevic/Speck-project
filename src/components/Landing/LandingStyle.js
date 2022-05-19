@@ -49,18 +49,15 @@ export const Content = styled.div`
   display: flex;
   align-items: center;
   padding: 0 5px;
-
   @media (${breakpoints.tabletMedium}) {
     padding-left: 24px;
     padding-right: 0;
   }
-
   @media (${breakpoints.destkop}) {
     padding-left: 0;
     left: calc((100% - 960px) / 2);
     width: 960px;
   }
-
   @media (${breakpoints.destkopLarge}) {
     left: calc((100% - 1260px) / 2);
     width: 1260px;
@@ -71,7 +68,6 @@ export const ContentInner = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
   @media (${breakpoints.tabletMedium}) {
     display: block;
   }
@@ -82,21 +78,17 @@ export const Title = styled.h1`
   font-size: 30px;
   color: ${colors.secondary};
   margin-bottom: 24px;
-
   @media (${breakpoints.tabletSmall}) {
     font-size: 38px;
   }
-
   @media (${breakpoints.tabletMedium}) {
     text-align: start;
     width: 550px;
   }
-
   @media (${breakpoints.tablet}) {
     padding: 0;
     font-size: 48px;
   }
-
   @media (${breakpoints.destkop}) {
     font-size: 56px;
   }
@@ -109,16 +101,13 @@ export const Subtitle = styled.p`
   color: ${colors.secondary};
   margin-bottom: 48px;
   text-align: center;
-
   @media (${breakpoints.mobileLarge}) {
     font-size: 16px;
     width: 350px;
   }
-
   @media (${breakpoints.tabletMedium}) {
     text-align: start;
   }
-
   @media (${breakpoints.tablet}) {
     width: 440px;
   }

@@ -9,8 +9,8 @@ import {
   Grid,
   Main,
   SpinnerWrapper,
+  SearchWrapper,
   NoCourses,
-  NoCoursesWrapper,
 } from "../../lib/style/generalStyles";
 import { RotatingLines } from "react-loader-spinner";
 
@@ -40,18 +40,36 @@ const Courses = () => {
     setWordEntered("");
   };
 
-  let course;
+  let course = !courses ? (
+    <Grid>
+      {[...Array(n)].map((e, i) => (
+        <SpinnerWrapper key={i}>
+          <RotatingLines width="75" strokeColor="#bf3939" strokeWidth="0.8" />
+        </SpinnerWrapper>
+      ))}
+    </Grid>
+  ) : (
+    <Grid>
+      {courses.map(
+        (course, index) =>
+          index <= courses.length && (
+            <CourseCard
+              key={course.id}
+              courseId={course.id}
+              imgSrc={course.imgSrc}
+              imgAlt={course.imgAlt}
+              title={course.title}
+              subtitle={course.subtitle}
+            />
+          )
+      )}
+    </Grid>
+  );
 
-  if (!courses) {
-    course = [...Array(n)].map((e, i) => (
-      <SpinnerWrapper key={i}>
-        <RotatingLines width="75" strokeColor="#bf3939" strokeWidth="0.8" />
-      </SpinnerWrapper>
-    ));
-  } else if (courses) {
-    course = courses.map(
-      (course, index) =>
-        index <= courses.length && (
+  if (filteredData.length !== 0) {
+    course = (
+      <SearchWrapper>
+        {filteredData.map((course, index) => (
           <CourseCard
             key={course.id}
             courseId={course.id}
@@ -60,28 +78,18 @@ const Courses = () => {
             title={course.title}
             subtitle={course.subtitle}
           />
-        )
+        ))}
+      </SearchWrapper>
+    );
+  } else if (wordEntered.length > 0 && !filteredData.includes({})) {
+    course = (
+      <SearchWrapper>
+        <NoCourses>No results for "{wordEntered}"</NoCourses>
+      </SearchWrapper>
     );
   }
 
-  if (filteredData.length !== 0) {
-    course = filteredData.map((course, index) => (
-      <CourseCard
-        key={course.id}
-        courseId={course.id}
-        imgSrc={course.imgSrc}
-        imgAlt={course.imgAlt}
-        title={course.title}
-        subtitle={course.subtitle}
-      />
-    ));
-  } else if (wordEntered.length > 0 && !filteredData.includes({})) {
-    course = (
-      <NoCoursesWrapper>
-        <NoCourses>No results for "{wordEntered}"</NoCourses>
-      </NoCoursesWrapper>
-    );
-  }
+  console.log(wordEntered);
 
   return (
     <>
@@ -91,19 +99,18 @@ const Courses = () => {
           title={"All lectures"}
           isHeadingVisible={true}
           isMainTitle={true}
-          isSearchBarVisible={true}
           customElement={
             <SearchBar
               disabled={!courses ? true : false}
               placeholder="Search courses..."
               onChange={handleSearch}
-              word={wordEntered}
+              searchWord={wordEntered}
               clearInput={clearInput}
-              showIcon={wordEntered.length}
+              searchStringLength={wordEntered.length}
             />
           }
         >
-          <Grid>{course}</Grid>
+          {course}
         </Section>
       </Main>
     </>

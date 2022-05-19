@@ -3,15 +3,19 @@ import { Link } from "react-router-dom";
 import { colors, breakpoints } from "../../lib/style/theme";
 
 export const Course = styled(Link)`
+  @media (${breakpoints.destkop}) {
+    flex-basis: 288px;
+  }
+  @media (${breakpoints.destkopLarge}) {
+    flex-basis: 279px;
+  }
   &:hover {
     figure {
       box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     }
-
     img {
       transform: scale(1.05);
     }
-
     h3 {
       color: ${colors.primary};
     }
@@ -25,23 +29,18 @@ export const Figure = styled.figure`
   overflow: hidden;
   margin-bottom: 16px;
   transition: all 0.3s;
-
   @media (${breakpoints.mobileLarge}) {
     height: 275px;
   }
-
   @media (${breakpoints.tabletSmall}) {
     height: 200px;
   }
-
   @media (${breakpoints.tablet}) {
     height: 275px;
   }
-
   @media (${breakpoints.destkop}) {
     height: 230px;
   }
-
   @media (${breakpoints.destkopLarge}) {
     height: 255px;
   }

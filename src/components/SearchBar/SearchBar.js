@@ -13,9 +13,9 @@ function SearchBar({
   placeholder,
   disabled,
   onChange,
-  word,
+  searchWord,
   clearInput,
-  showIcon,
+  searchStringLength,
 }) {
   return (
     <Search>
@@ -25,11 +25,11 @@ function SearchBar({
           placeholder={placeholder}
           disabled={disabled}
           onChange={onChange}
-          maxLength={35}
-          value={word}
+          maxLength="30"
+          value={searchWord}
         />
         <IconContainer>
-          {{ showIcon } && { showIcon } > 0 ? (
+          {searchStringLength > 0 ? (
             <ClearIcon onClick={clearInput} />
           ) : (
             <Icon />
