@@ -49,7 +49,7 @@ const Profile = () => {
           </Button>
         }
       >
-        <Grid isProfile>
+        <Grid isProfileGrid>
           <Formik
             initialValues={formValues}
             validationSchema={Yup.object({

@@ -19,7 +19,7 @@ export const Grid = styled.div`
     column-gap: 32px;
 
     ${(props) =>
-      props.isProfile &&
+      props.isProfileGrid &&
       `
       grid-template-columns: repeat(1, 1fr);
       row-gap: 48px;
@@ -29,7 +29,7 @@ export const Grid = styled.div`
 
   @media (${breakpoints.tablet}) {
     ${(props) =>
-      props.isProfile &&
+      props.isProfileGrid &&
       `
     grid-template-columns: repeat(2, 1fr);
     column-gap: 0px;
@@ -103,14 +103,16 @@ export const Button = styled.button`
   ${(props) =>
     props.isForm &&
     `
-  display: block;
-  margin: 0 auto;
-  width: 220px;`}
+    display: block;
+    margin: 0 auto;
+    width: 220px;`}
 `;
 
 // FORM STYLES
 
-export const Form = styled(FormFormik)`
+export const Fieldset = styled.fieldset`
+  border: none;
+
   @media (${breakpoints.tabletSmall}) {
     width: 400px;
 
@@ -133,6 +135,8 @@ export const Form = styled(FormFormik)`
   
     }`}
 `;
+
+export const Form = styled(FormFormik)``;
 
 export const FormRow = styled.div`
   margin-bottom: 32px;
@@ -183,10 +187,6 @@ export const Label = styled.label`
   color: ${colors.textPrimary};
   margin-bottom: 5px;
   font-weight: bold;
-`;
-
-export const Fieldset = styled.fieldset`
-  border: none;
 `;
 
 // SPINNER WRAPPER
