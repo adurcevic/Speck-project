@@ -19,7 +19,7 @@ export const Grid = styled.div`
     column-gap: 32px;
 
     ${(props) =>
-      props.isProfile &&
+      props.isProfileGrid &&
       `
       grid-template-columns: repeat(1, 1fr);
       row-gap: 48px;
@@ -29,7 +29,7 @@ export const Grid = styled.div`
 
   @media (${breakpoints.tablet}) {
     ${(props) =>
-      props.isProfile &&
+      props.isProfileGrid &&
       `
     grid-template-columns: repeat(2, 1fr);
     column-gap: 0px;
@@ -110,29 +110,7 @@ export const Button = styled.button`
 
 // FORM STYLES
 
-export const Form = styled(FormFormik)`
-  @media (${breakpoints.tabletSmall}) {
-    width: 400px;
-
-    ${(props) =>
-      props.isCentered !== false &&
-      `
-            margin: 0 auto;
-        `}
-  }
-
-  ${(props) =>
-    props.isProfile &&
-    `
-      @media (${breakpoints.tablet}) {
-    width: 300px;
-      }
-
-    @media (${breakpoints.destkop}) {
-    width: 400px;
-  
-    }`}
-`;
+export const Form = styled(FormFormik)``;
 
 export const FormRow = styled.div`
   margin-bottom: 32px;
@@ -188,6 +166,28 @@ export const Label = styled.label`
 
 export const Fieldset = styled.fieldset`
   border: none;
+
+  @media (${breakpoints.tabletSmall}) {
+    width: 400px;
+
+    ${(props) =>
+      props.isCentered !== false &&
+      `
+            margin: 0 auto;
+        `}
+  }
+
+  ${(props) =>
+    props.isProfile &&
+    `
+      @media (${breakpoints.tablet}) {
+    width: 300px;
+      }
+
+    @media (${breakpoints.destkop}) {
+    width: 400px;
+  
+    }`}
 `;
 
 // SPINNER WRAPPER

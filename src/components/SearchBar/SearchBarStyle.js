@@ -3,18 +3,18 @@ import { colors, breakpoints } from "../../lib/style/theme";
 import SearchIcon from "@material-ui/icons/Search";
 import CloseIcon from "@material-ui/icons/Close";
 
-export const Search = styled.div``;
+export const Search = styled.div`
+  @media (${breakpoints.tabletMedium}) {
+    width: 400px;
+  }
+`;
 
 export const SearchInputs = styled.div`
   position: relative;
-  max-width: 290px;
+  max-width: 350px;
 
-  @media (${breakpoints.tablet}) {
-    width: 320px;
-  }
-
-  @media (${breakpoints.destkopLarge}) {
-    width: 350px;
+  @media (${breakpoints.tabletMedium}) {
+    max-width: 400px;
   }
 `;
 

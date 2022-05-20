@@ -63,7 +63,6 @@ export const Content = styled.div`
 `;
 
 export const Text = styled.p`
-  /* text-align: center; */
   font-size: 18px;
   line-height: 180%;
   color: ${colors.textSecondary};
