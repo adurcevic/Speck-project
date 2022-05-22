@@ -63,7 +63,6 @@ const Register = () => {
             ),
           })}
           onSubmit={(values, actions) => {
-            registerUser(values);
             const user = {
               first_name: values.firstName,
               last_name: values.lastName,

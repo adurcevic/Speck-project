@@ -41,6 +41,7 @@ const SignIn = () => {
               const users = await getAllUser(res.access_token);
               const user = users.find((user) => user.email === values.email);
               localStorage.setItem("accessToken", res.access_token);
+              // localStorage.getItem -> Set isLoggedIn = true
 
               actions.setSubmitting(false);
               actions.resetForm({
