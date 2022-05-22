@@ -4,11 +4,11 @@ import { colors, breakpoints } from "../../lib/style/theme";
 export const Testimonial = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
 
   @media (${breakpoints.tabletMedium}) {
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
   }
 `;
 
@@ -63,6 +63,7 @@ export const Content = styled.div`
 `;
 
 export const Text = styled.p`
+  text-align: center;
   font-size: 18px;
   line-height: 180%;
   color: ${colors.textSecondary};

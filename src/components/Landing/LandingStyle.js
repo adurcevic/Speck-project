@@ -48,7 +48,7 @@ export const Content = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
-  padding: 0 5px;
+  padding: 0 24px;
 
   @media (${breakpoints.tabletMedium}) {
     padding-left: 24px;
@@ -67,21 +67,16 @@ export const Content = styled.div`
   }
 `;
 
-export const ContentInner = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  @media (${breakpoints.tabletMedium}) {
-    display: block;
-  }
-`;
+export const ContentInner = styled.div``;
 
 export const Title = styled.h1`
-  text-align: center;
-  font-size: 30px;
+  font-size: 28px;
   color: ${colors.secondary};
   margin-bottom: 24px;
+
+  @media (${breakpoints.mobileLarge}) {
+    font-size: 32px;
+  }
 
   @media (${breakpoints.tabletSmall}) {
     font-size: 38px;
@@ -104,19 +99,18 @@ export const Title = styled.h1`
 
 export const Subtitle = styled.p`
   font-size: 14px;
-  width: 300px;
+  width: 260px;
   line-height: 180%;
   color: ${colors.secondary};
   margin-bottom: 48px;
-  text-align: center;
 
   @media (${breakpoints.mobileLarge}) {
     font-size: 16px;
     width: 350px;
   }
 
-  @media (${breakpoints.tabletMedium}) {
-    text-align: start;
+  @media (${breakpoints.tabletSmall}) {
+    width: 370px;
   }
 
   @media (${breakpoints.tablet}) {
