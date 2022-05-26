@@ -44,3 +44,19 @@ export const getAllUsers = (accessToken) => {
     return res.json();
   });
 };
+
+export const updateUser = (id, user) => {
+  return fetch(`${apiOrigin}/users/${id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(user),
+  }).then((res) => {
+    if (!res.ok) {
+      throw res;
+    }
+
+    return res.json();
+  });
+};

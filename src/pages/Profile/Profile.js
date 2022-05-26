@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Header from "../../components/Header/Header";
 import Section from "../../components/Section/Section";
 import PasswordWidget from "../../components/PasswordWidget/PasswordWidget";
@@ -13,21 +13,56 @@ import {
   ErrorMessage,
   Label,
   Fieldset,
+  FormSucessMessage,
 } from "../../lib/style/generalStyles";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { Button } from "../../lib/style/generalStyles";
+import { AuthContext } from "../../context/AuthContext";
+import { updateUser } from "../../api/users";
 
-const Profile = (isLoggedIn) => {
+const Profile = () => {
+  const { isLoggedIn, setIsLoggedIn, formValues, setFormValues } =
+    useContext(AuthContext);
   const [active, setActive] = useState(false);
-  const [formValues, setFormValues] = useState({
-    firstName: "Antonio",
-    lastName: "Đurčević",
-    email: "antonio.durcevic@gmail.com",
-    githubUsername: "Rose432",
-    zeplinUsername: "Rose55",
-    activeFacultyYear: "2",
-  });
+  const [successMessage, setSuccessMessage] = useState(null);
+  // const [formValues, setFormValues] = useState({
+  //   firstName: "Antonio",
+  //   lastName: "Đurčević",
+  //   email: "antonio.durcevic@gmail.com",
+  //   githubUsername: "Rose432",
+  //   zeplinUsername: "Rose55",
+  //   activeFacultyYear: "2",
+  // });
+
+  /* setFormValues({
+   firstName: user.first_name,
+   lastName: user.last_name,
+   email: user.email,
+   githubUsername: user.github_username,
+   zeplinUsername: user.zeplin_username,
+   activeFacultyYear:  +user.activeFacultyYear === 0
+                  ? null
+                  : +user.activeFacultyYear,
+    })
+  */
+
+  // const token = localStorage.getItem("accessToken");
+  // // const decodeToken = jwt_decode(token);
+  // // console.log(decodeToken);
+
+  // const findUser = async function (token) {
+  //   try {
+  //     const users = await getAllUsers(token);
+  //     const decodedToken = jwt_decode(token);
+  //     const user = users.find((user) => user.email === decodedToken.email);
+  //     console.log(user);
+  //   } catch (err) {
+  //     console.log(err.message);
+  //   }
+  // };
+
+  // findUser(token);
 
   const handleClick = (e) => {
     active ? setActive(false) : setActive(true);
@@ -70,24 +105,50 @@ const Profile = (isLoggedIn) => {
               ),
             })}
             onSubmit={(values, actions) => {
-              setTimeout(() => {
-                alert(JSON.stringify(values, null, 2));
-                actions.setSubmitting(false);
-                setFormValues({
-                  firstName: values.firstName,
-                  lastName: values.lastName,
-                  email: values.email,
-                  githubUsername: values.githubUsername,
-                  zeplinUsername: values.zeplinUsername,
-                  activeFacultyYear: values.activeFacultyYear,
+              const user = {
+                first_name: values.firstName,
+                last_name: values.lastName,
+                email: values.email,
+                github_username: values.githubUsername,
+                zeplin_username: values.zeplinUsername,
+                active_faculty_year:
+                  +values.activeFacultyYear === 0
+                    ? null
+                    : +values.activeFacultyYear,
+              };
+
+              updateUser(formValues.id, user)
+                .then((res) => {
+                  actions.setSubmitting(false);
+                  setSuccessMessage({
+                    error: false,
+                    message: "Profile updated successfully",
+                  });
+                  setTimeout(() => {
+                    setSuccessMessage(null);
+                  }, 3000);
+                })
+                .catch((err) => {
+                  setSuccessMessage({
+                    error: true,
+                    message: "Something went wrong please try again",
+                  });
+                  actions.setSubmitting(false);
                 });
-                initialState();
-              }, 1000);
+
+              initialState();
             }}
           >
             {(formik) => (
               <Fieldset isProfile disabled={!active ? true : false}>
                 <Form>
+                  {successMessage && (
+                    <FormRow>
+                      <FormSucessMessage isError={successMessage.error}>
+                        {successMessage.message}
+                      </FormSucessMessage>
+                    </FormRow>
+                  )}
                   <FormRow>
                     <Label htmlFor="firstName">First name:</Label>
                     <Field

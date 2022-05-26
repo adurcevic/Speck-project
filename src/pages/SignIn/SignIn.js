@@ -18,12 +18,9 @@ import { loginUser, getAllUsers } from "../../api/users";
 import { AuthContext } from "../../context/AuthContext";
 
 const SignIn = () => {
-  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
+  const { isLoggedIn, setIsLoggedIn, formValues, setFormValues } =
+    useContext(AuthContext);
   const [successMessage, setSuccessMessage] = useState(null);
-
-  // if (isLoggedIn) {
-  //   return <Navigate to="/" replace />;
-  // }
 
   return (
     <>
@@ -46,12 +43,11 @@ const SignIn = () => {
             try {
               const res = await loginUser(values);
               const users = await getAllUsers(res.access_token);
+              console.log(res.access_token);
               const user = users.find((user) => user.email === values.email);
               console.log(user);
               localStorage.setItem("accessToken", res.access_token);
               setIsLoggedIn(true);
-              // localStorage.getItem -> Set isLoggedIn = true
-
               actions.setSubmitting(false);
               actions.resetForm({
                 email: "",
