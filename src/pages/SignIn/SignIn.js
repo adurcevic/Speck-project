@@ -1,5 +1,6 @@
 import React from "react";
-import { useState } from "react";
+// import { Navigate } from "react-router-dom";
+import { useState, useContext } from "react";
 import Header from "../../components/Header/Header";
 import Section from "../../components/Section/Section";
 import {
@@ -13,10 +14,16 @@ import {
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { Button } from "../../lib/style/generalStyles";
-import { loginUser, getAllUser } from "../../api/users";
+import { loginUser, getAllUsers } from "../../api/users";
+import { AuthContext } from "../../context/AuthContext";
 
 const SignIn = () => {
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
   const [successMessage, setSuccessMessage] = useState(null);
+
+  // if (isLoggedIn) {
+  //   return <Navigate to="/" replace />;
+  // }
 
   return (
     <>
@@ -38,9 +45,11 @@ const SignIn = () => {
           onSubmit={async (values, actions) => {
             try {
               const res = await loginUser(values);
-              const users = await getAllUser(res.access_token);
+              const users = await getAllUsers(res.access_token);
               const user = users.find((user) => user.email === values.email);
+              console.log(user);
               localStorage.setItem("accessToken", res.access_token);
+              setIsLoggedIn(true);
               // localStorage.getItem -> Set isLoggedIn = true
 
               actions.setSubmitting(false);

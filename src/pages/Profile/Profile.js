@@ -18,7 +18,7 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import { Button } from "../../lib/style/generalStyles";
 
-const Profile = () => {
+const Profile = (isLoggedIn) => {
   const [active, setActive] = useState(false);
   const [formValues, setFormValues] = useState({
     firstName: "Antonio",

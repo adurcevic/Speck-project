@@ -32,15 +32,15 @@ export const loginUser = (user) => {
   });
 };
 
-export const getAllUser = (accessToken) => {
+export const getAllUsers = (accessToken) => {
   return fetch(`${apiOrigin}/users`, {
     headers: {
-      Authozization: `Bearer ${accessToken}`,
+      Authorization: `Bearer ${accessToken}`,
     },
   }).then((res) => {
     if (!res.ok) {
       throw res;
     }
-    return res.json;
+    return res.json();
   });
 };

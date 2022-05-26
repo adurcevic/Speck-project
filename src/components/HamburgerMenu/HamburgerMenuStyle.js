@@ -28,12 +28,38 @@ export const MenuLinks = styled(NavLink)`
   letter-spacing: 2px;
   color: ${colors.secondary};
   transition: all 0.3s ease-in-out;
+
   @media (${breakpoints.tabletSmall}) {
     font-size: 24px;
   }
+
   @media (${breakpoints.tablet}) {
     font-size: 28px;
   }
+
+  &:hover {
+    background: ${colors.bgMenuHover};
+    font-weight: 700;
+  }
+`;
+
+export const Logout = styled.span`
+  font-size: 20px;
+  text-transform: uppercase;
+  padding: 20px 0;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: ${colors.secondary};
+  transition: all 0.3s ease-in-out;
+
+  @media (${breakpoints.tabletSmall}) {
+    font-size: 24px;
+  }
+
+  @media (${breakpoints.tablet}) {
+    font-size: 28px;
+  }
+
   &:hover {
     background: ${colors.bgMenuHover};
     font-weight: 700;
