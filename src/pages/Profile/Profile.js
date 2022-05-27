@@ -108,7 +108,7 @@ const Profile = () => {
               const user = {
                 first_name: values.firstName,
                 last_name: values.lastName,
-                email: values.email,
+                // email: values.email,
                 github_username: values.githubUsername,
                 zeplin_username: values.zeplinUsername,
                 active_faculty_year:
@@ -116,8 +116,11 @@ const Profile = () => {
                     ? null
                     : +values.activeFacultyYear,
               };
-              console.log(user);
-              updateUser(formValues.id, user)
+              updateUser(
+                formValues.id,
+                user,
+                localStorage.getItem("accessToken")
+              )
                 .then((res) => {
                   actions.setSubmitting(false);
                   setSuccessMessage({
@@ -131,7 +134,7 @@ const Profile = () => {
                 .catch((err) => {
                   setSuccessMessage({
                     error: true,
-                    message: "Something went wrong please try again",
+                    message: "Something went wrong, please try again",
                   });
                   actions.setSubmitting(false);
                 });
