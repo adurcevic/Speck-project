@@ -18,7 +18,6 @@ const Courses = () => {
   const [courses, setCourses] = useState(null);
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
-  const n = coursesMock.length;
 
   useEffect(() => {
     setTimeout(() => {
@@ -41,13 +40,9 @@ const Courses = () => {
   };
 
   let course = !courses ? (
-    <Grid>
-      {[...Array(n)].map((e, i) => (
-        <SpinnerWrapper key={i}>
-          <RotatingLines width="75" strokeColor="#bf3939" strokeWidth="0.8" />
-        </SpinnerWrapper>
-      ))}
-    </Grid>
+    <SpinnerWrapper>
+      <RotatingLines width="100" strokeColor="#bf3939" strokeWidth="0.8" />
+    </SpinnerWrapper>
   ) : (
     <Grid>
       {courses.map(
@@ -88,8 +83,6 @@ const Courses = () => {
       </SearchWrapper>
     );
   }
-
-  console.log(wordEntered);
 
   return (
     <>

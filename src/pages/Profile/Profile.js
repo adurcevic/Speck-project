@@ -18,7 +18,7 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import { Button } from "../../lib/style/generalStyles";
 
-const Profile = (isLoggedIn) => {
+const Profile = () => {
   const [active, setActive] = useState(false);
   const [formValues, setFormValues] = useState({
     firstName: "Antonio",
@@ -126,7 +126,7 @@ const Profile = (isLoggedIn) => {
                       placeholder="GitHub Username..."
                       disabled={formik.isSubmitting}
                     />
-                    <ErrorMessage component={"div"} name="gitHubUsername" />
+                    <ErrorMessage component={"div"} name="githubUsername" />
                   </FormRow>
                   <FormRow>
                     <Label htmlFor="zeplinUsername">Zeplin username:</Label>

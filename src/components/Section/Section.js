@@ -12,16 +12,11 @@ const Section = ({
   modifiers,
   actionText,
   title,
-  // action,
-  // buttonText,
   isHeadingVisible = true,
   children,
   isTestimonial,
   isMainTitle = false,
   isCentered = false,
-  // isSearchBarVisible = false,
-  // disabled,
-  // placeholder,
   customElement,
 }) => {
   return (

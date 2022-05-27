@@ -46,6 +46,7 @@ export const IconContainer = styled.div`
 export const Icon = styled(SearchIcon)`
   font-size: 30px !important;
   color: ${colors.textPrimary};
+  cursor: pointer;
 `;
 
 export const ClearIcon = styled(CloseIcon)`

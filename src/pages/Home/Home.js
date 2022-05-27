@@ -17,7 +17,7 @@ import { RotatingLines } from "react-loader-spinner";
 
 const Home = () => {
   const [courses, setCourses] = useState(null);
-  const n = 4;
+
   let navigate = useNavigate();
 
   useEffect(() => {
@@ -49,17 +49,13 @@ const Home = () => {
           }
         >
           {!courses ? (
-            <Grid>
-              {[...Array(n)].map((e, i) => (
-                <SpinnerWrapper key={i}>
-                  <RotatingLines
-                    width="75"
-                    strokeColor="#bf3939"
-                    strokeWidth="0.8"
-                  />
-                </SpinnerWrapper>
-              ))}
-            </Grid>
+            <SpinnerWrapper>
+              <RotatingLines
+                width="100"
+                strokeColor="#bf3939"
+                strokeWidth="0.8"
+              />
+            </SpinnerWrapper>
           ) : (
             <Grid>
               {courses.map(

@@ -170,7 +170,7 @@ const Register = () => {
                     placeholder="GitHub Username..."
                     disabled={formik.isSubmitting}
                   />
-                  <ErrorMessage component={"div"} name="gitHubUsername" />
+                  <ErrorMessage component={"div"} name="githubUsername" />
                 </FormRow>
                 <FormRow>
                   <Field
