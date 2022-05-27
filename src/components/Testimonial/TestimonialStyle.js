@@ -13,7 +13,7 @@ export const Testimonial = styled.div`
 `;
 
 export const Figure = styled.figure`
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   width: 130px;
   height: 130px;
   border-radius: 50%;
