@@ -34,7 +34,7 @@ const AuthProvider = ({ children }) => {
           });
         })
         .catch((err) => console.error(`${err.message} 🙄`));
-  });
+  }, [isLoggedIn]);
 
   return (
     <AuthContext.Provider

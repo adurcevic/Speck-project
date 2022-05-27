@@ -116,7 +116,7 @@ const Profile = () => {
                     ? null
                     : +values.activeFacultyYear,
               };
-
+              console.log(user);
               updateUser(formValues.id, user)
                 .then((res) => {
                   actions.setSubmitting(false);
