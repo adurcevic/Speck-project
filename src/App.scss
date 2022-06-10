@@ -11,9 +11,10 @@ body {
   font-family: "Manrope", sans-serif;
 }
 
-body,
-html {
+html,
+body {
   overflow-x: hidden;
+  position: relative;
 }
 
 a {
