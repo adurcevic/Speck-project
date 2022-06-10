@@ -15,7 +15,7 @@ export const Grid = styled.div`
   row-gap: 48px;
 
   @media (${breakpoints.tabletSmall}) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
     column-gap: 32px;
 
     ${(props) =>
