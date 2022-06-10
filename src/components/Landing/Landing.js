@@ -1,28 +1,43 @@
-import "./Landing.scss";
-import Button from "../Button/Button";
+import { Button } from "../../lib/style/generalStyles";
 import LandingImg from "../../assets/images/landing.jpg";
+import { useNavigate } from "react-router-dom";
+import {
+  Landing as LandingWrapper,
+  Figure,
+  Image,
+  Overlay,
+  OverlayPrimary,
+  OverlaySecondary,
+  Content,
+  ContentInner,
+  Title,
+  Subtitle,
+} from "./LandingStyle";
 
 const Landing = () => {
+  let navigate = useNavigate();
   return (
-    <div className="Landing">
-      <img className="Landing-Img" src={LandingImg} alt="landing" />
-      <div className="Landing-Overlay">
-        <div className="Landing-OverlayPrimary"></div>
-        <div className="Landing-OverlaySecondary"></div>
-      </div>
-      <div className="Landing-Content">
-        <div className="Landing-ContentInner">
-          <h1 className="Landing-Title">
-            Learn what matters, Speck Academy powered by FOI
-          </h1>
-          <p className="Landing-Subtitle">
+    <LandingWrapper>
+      <Figure>
+        <Image src={LandingImg} alt="landing image" />
+      </Figure>
+      <Overlay>
+        <OverlayPrimary />
+        <OverlaySecondary />
+      </Overlay>
+      <Content>
+        <ContentInner>
+          <Title>Learn what matters, Speck Academy powered by FOI</Title>
+          <Subtitle>
             Make a turnaround in your career or upgrade your current skill set
             with knowledge-based lessons from IT practice
-          </p>
-          <Button modifiers={["landing"]}>Explore Courses</Button>
-        </div>
-      </div>
-    </div>
+          </Subtitle>
+          <Button onClick={() => navigate("/courses")} isOutline={true}>
+            Explore Courses
+          </Button>
+        </ContentInner>
+      </Content>
+    </LandingWrapper>
   );
 };
 

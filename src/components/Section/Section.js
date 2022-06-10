@@ -1,42 +1,41 @@
 import React from "react";
-import Button from "../Button/Button";
-import "./Section.scss";
+import {
+  Section as SectionWrapper,
+  SectionInner,
+  ActionText,
+  Heading,
+  H2,
+  H1,
+} from "./SectionStyle";
 
 const Section = ({
   modifiers,
   actionText,
   title,
-  buttonText,
   isHeadingVisible = true,
   children,
+  isTestimonial,
+  isMainTitle = false,
+  isCentered = false,
+  customElement,
 }) => {
-  const modifierClasses = {
-    testimonials: "Section_testimonials",
-  };
-
-  let sectionClass = "Section";
-
-  if (modifiers) {
-    modifiers.map((modifier) => {
-      sectionClass += " " + modifierClasses[modifier];
-    });
-  }
-
   return (
-    <section className={sectionClass}>
-      <div className="Section-Inner">
-        {actionText && <span className="Section-ActionText">{actionText}</span>}
+    <SectionWrapper isTestimonial={isTestimonial}>
+      <SectionInner>
+        {actionText && <ActionText>{actionText}</ActionText>}
         {isHeadingVisible && (
-          <div className="Section-Heading">
-            {title && <h2 className="Section-Title">{title}</h2>}
-            {buttonText && (
-              <Button modifiers={["heading", "outline"]}>{buttonText}</Button>
+          <Heading>
+            {title && { isMainTitle } ? (
+              <H1 isCentered={isCentered}>{title}</H1>
+            ) : (
+              <H2 isCentered={isCentered}>{title}</H2>
             )}
-          </div>
+            {customElement && customElement}
+          </Heading>
         )}
         {children}
-      </div>
-    </section>
+      </SectionInner>
+    </SectionWrapper>
   );
 };
 

@@ -1,3 +1,5 @@
+@import "/src/theme.scss";
+
 .Header {
   position: absolute;
   top: 0;
@@ -6,16 +8,16 @@
   padding: 24px;
   z-index: 2;
 
-  &.Header_secondary {
+  &_secondary {
     position: initial;
-    background-color: #333333;
+    background-color: $colorTextPrimary;
   }
 
   &-Hamburger {
     width: 30px;
     height: auto;
 
-    @media (min-width: 1024px) {
+    @media (#{$destkop}) {
       display: none;
     }
 
@@ -29,13 +31,13 @@
     justify-content: space-between;
     align-items: center;
 
-    @media (min-width: 1024px) {
+    @media (#{$destkop}) {
       width: 960px;
       margin: 0 auto;
       padding: 32px 0;
     }
 
-    @media (min-width: 1300px) {
+    @media (#{$destkopLarge}) {
       width: 1260px;
     }
   }
@@ -43,7 +45,7 @@
   &-Nav {
     display: none;
 
-    @media (min-width: 1024px) {
+    @media (#{$destkop}) {
       display: block;
     }
   }
@@ -53,14 +55,38 @@
   }
 
   &-NavLink {
-    color: #ffffff;
+    color: $colorSecondary;
     letter-spacing: 1px;
     margin-right: 48px;
     transition: text-shadow 0.3s ease-out;
-  }
+    position: relative;
 
-  &-NavLink:hover {
-    text-shadow: 0.7px 0 0 var(--color-secondary);
+    &:hover {
+      text-shadow: 0.7px 0 0 $colorSecondary;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      height: 2px;
+      width: 100%;
+      background: $colorSecondary;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s, opacity 0.3s linear;
+    }
+
+    &:hover::after {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    &_active::after {
+      visibility: visible;
+      opacity: 1;
+    }
   }
 
   &-Nav-Button {
